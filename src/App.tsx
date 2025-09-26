@@ -1,7 +1,6 @@
 
-import './App.css';
-
 import Header from "./sections/Header";
+import Expertise from "./sections/Expertise";
 import ContactForm from './components/ContactForm';
 
 export default function App() {
@@ -10,6 +9,7 @@ export default function App() {
         <main className="site">
 
             <Header/>
+            <Expertise/>
             <ContactForm/>
 
             <footer className="footer container">
