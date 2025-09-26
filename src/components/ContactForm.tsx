@@ -1,65 +1,75 @@
-
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function ContactForm() {
-    const [firstName, setFirstName]   = useState('');
-    const [lastName, setLastName]     = useState('');
-    const [phoneNumber, setPhone]     = useState('');
-    const [email, setEmail]           = useState('');
-    const [message, setMessage]       = useState('');
-    const [loading, setLoading]       = useState(false);
-    const [status, setStatus]         = useState<string | null>(null);
+    const [submitted, setSubmitted] = useState(false);
 
-    async function onSubmit(e: React.FormEvent) {
+    async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        setLoading(true); setStatus(null);
+        const form = e.currentTarget;
+
+        if (!form.reportValidity()) return;
+
+        const data = new FormData(form);
+        const payload = Object.fromEntries(data.entries());
 
         try {
-            const base = import.meta.env.VITE_API_BASE_URL;
+            const base = import.meta.env.VITE_API_BASE ?? "http://localhost:8080";
             const res = await fetch(`${base}/api/contact`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ firstName, lastName, phoneNumber, email, message }),
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
             });
-            if (res.ok) {
-                setStatus('Sent!');
-                setFirstName(''); setLastName(''); setPhone(''); setEmail(''); setMessage('');
-            } else {
-                setStatus('Failed to send.');
-            }
-        } catch {
-            setStatus('Network error.');
-        } finally {
-            setLoading(false);
+
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+            form.reset();
+            setSubmitted(true);
+        } catch (err) {
+            alert("Could not send message. Please try again later.");
         }
     }
 
     return (
-        <form onSubmit={onSubmit} style={{ display: 'grid', gap: 12, maxWidth: 520 }}>
+        <section id="contact" className="container contact">
+            <h2>Contact Me</h2>
+            <p className="muted">Got a project waiting to be realized? Let's collaborate and make it happen!</p>
 
-            <label>First name
-                <input value={firstName} onChange={e => setFirstName(e.target.value)} required />
-            </label>
+            {submitted ? (
+                <div className="success">Thanks! I'll get back to you shortly.</div>
+            ) : (
+                <form className="contact__form" onSubmit={onSubmit} noValidate>
+                    <div className="grid-2">
+                        <div className="field">
+                            <label className="label" htmlFor="firstName">First name <span className="req">*</span></label>
+                            <input className="form__input" id="firstName" name="firstName" autoComplete="given-name" placeholder="Your first name" required />
+                        </div>
+                        <div className="field">
+                            <label className="label" htmlFor="lastName">Last name <span className="req">*</span></label>
+                            <input className="form__input" id="lastName" name="lastName" autoComplete="family-name" placeholder="Your last name" required />
+                        </div>
+                    </div>
 
-            <label>Last name
-                <input value={lastName} onChange={e => setLastName(e.target.value)} required />
-            </label>
+                    <div className="grid-2">
+                        <div className="field">
+                            <label className="label" htmlFor="email">Email <span className="req">*</span></label>
+                            <input className="form__input" id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
+                        </div>
+                        <div className="field">
+                            <label className="label" htmlFor="phone">Phone (optional)</label>
+                            <input className="form__input" id="phoneNumber" name="phoneNumber" type="tel" autoComplete="tel" placeholder="(+46) 70 123 45 67" />
+                        </div>
+                    </div>
 
-            <label>Phone (optional)
-                <input value={phoneNumber} onChange={e => setPhone(e.target.value)} />
-            </label>
+                    <div className="field">
+                        <label className="label" htmlFor="message">Message <span className="req">*</span></label>
+                        <textarea className="form__textarea" id="message" name="message" rows={8} placeholder="Tell me a bit about your project..." required />
+                    </div>
 
-            <label>Email
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
-            </label>
-
-            <label>Message
-                <textarea rows={5} value={message} onChange={e => setMessage(e.target.value)} required />
-            </label>
-
-            <button type="submit" disabled={loading}>{loading ? 'Sending…' : 'Send'}</button>
-            {status && <p>{status}</p>}
-
-        </form>
+                    <div className="actions">
+                        <button className="btn" type="submit" aria-label="Send message">SEND <span className="arrow" aria-hidden>➤</span></button>
+                    </div>
+                </form>
+            )}
+        </section>
     );
 }
