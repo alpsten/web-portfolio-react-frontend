@@ -1,0 +1,13 @@
+.expertise {
+  .cards{display:grid;gap:18px}
+  @media (min-width:820px){ .cards{ grid-template-columns:repeat(3,1fr)} }
+  .card{
+    backdrop-filter:saturate(110%) blur(2px);
+    background:var(--card);padding:18px;border-radius:var(--radius);
+    box-shadow:0 6px 24px rgba(0,0,0,.28);
+  }
+  .card-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .icon{width:36px;height:36px}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .pill{background:#1b2128cc;border:1px solid #2a3340;padding:6px 10px;border-radius:999px;font-size:14px}
+}
