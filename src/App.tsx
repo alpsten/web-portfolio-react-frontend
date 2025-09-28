@@ -3,6 +3,7 @@ import Header from "./sections/Header";
 import Expertise from "./sections/Expertise";
 import ContactForm from './components/ContactForm';
 import SpotifySection from "./sections/SpotifySection.tsx";
+import FunFact from "./sections/FunFact.tsx";
 
 export default function App() {
     return (
@@ -13,6 +14,7 @@ export default function App() {
             <Expertise/>
             <SpotifySection/>
             <ContactForm/>
+            <FunFact/>
 
             <footer className="footer container">
                 <small className="muted">Made by Emil Forsberg</small>
