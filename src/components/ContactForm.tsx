@@ -32,7 +32,7 @@ export default function ContactForm() {
     return (
         <section id="contact" className="container contact">
             <h2>Contact Me</h2>
-            <p className="muted">Got a project waiting to be realized? Let's collaborate and make it happen!</p>
+            <p className="muted">Working on an idea that’s ready to take off? I’d love to collaborate.</p>
 
             {submitted ? (
                 <div className="success">Thanks! I'll get back to you shortly.</div>
@@ -62,7 +62,7 @@ export default function ContactForm() {
 
                     <div className="field">
                         <label className="label" htmlFor="message">Message <span className="req">*</span></label>
-                        <textarea className="form__textarea" id="message" name="message" rows={8} placeholder="Tell me a bit about your project..." required />
+                        <textarea className="form__textarea" id="message" name="message" rows={8} placeholder="What's on your mind? Project idea? Need help? Reach out." required />
                     </div>
 
                     <div className="actions">
