@@ -1,5 +1,5 @@
 
-import { FaJava, FaReact, FaDocker } from "react-icons/fa";
+import {FaJava, FaReact, FaDocker, FaDatabase} from "react-icons/fa";
 
 type Bucket = {
     title: string;
@@ -15,6 +15,12 @@ export default function Expertise() {
             Icon: FaJava,
             text: "I code in Java and develop web/app solutions.",
             stack: ["Java", "Spring Boot", "REST", "JPA/Hibernate"],
+        },
+        {
+            title: "Databases",
+            Icon: FaDatabase,
+            text: "I can work with different databases.",
+            stack: ["MySQL", "MongoDB", "PostgresSQ"],
         },
         {
             title: "React",
