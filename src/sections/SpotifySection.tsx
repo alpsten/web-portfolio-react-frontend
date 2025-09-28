@@ -18,8 +18,6 @@ export default function SpotifySection() {
                     allowFullScreen
                     loading="lazy"
                 />
-                <p className="muted">Some hip-hop favorites of mine from the early to late 90's.</p>
-                <p className="muted">Cover photo by; @abushihabmarey (from Unsplash.com).</p>
             </div>
 
         </section>
