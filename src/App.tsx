@@ -1,4 +1,5 @@
 
+import Navbar from "./sections/Navbar.tsx";
 import Header from "./sections/Header";
 import Expertise from "./sections/Expertise";
 import ContactForm from './components/ContactForm';
@@ -10,6 +11,7 @@ export default function App() {
 
         <main className="site">
 
+            <Navbar />
             <Header/>
             <Expertise/>
             <SpotifySection/>

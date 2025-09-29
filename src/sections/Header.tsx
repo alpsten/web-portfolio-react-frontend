@@ -1,3 +1,4 @@
+
 import {FaApple, FaGithub, FaLinkedin} from "react-icons/fa";
 import {MdEmail} from "react-icons/md";
 import avatar from "../assets/avatar-react.webp";
@@ -29,20 +30,17 @@ export default function Header() {
                         <span className="hero__subtitle"></span>Based in Stockholm
                         </p>
 
-                <div className="socials-inline">
-
-                    <a className="social" href="https://www.linkedin.com/in/forsberg-emil/" target="_blank" rel="noreferrer">
-                        <FaLinkedin size={16} /> LinkedIn
-                    </a>
-
-                    <a className="social" href="https://github.com/EmilForzberg" target="_blank" rel="noreferrer">
-                        <FaGithub size={16} /> GitHub
-                    </a>
-
-                    <a className="social" href="mailto:hello.emilforsberg.com">
-                        <MdEmail size={16} /> Email
-                    </a>
-                </div>
+                    <div className="social-icons">
+                        <a className="social-icon social-icon--li" href="https://www.linkedin.com/in/forsberg-emil/" target="_blank" rel="noreferrer">
+                            <FaLinkedin />
+                        </a>
+                        <a className="social-icon social-icon--gh" href="https://github.com/EmilForzberg" target="_blank" rel="noreferrer">
+                            <FaGithub />
+                        </a>
+                        <a className="social-icon social-icon--mail" href="mailto:hello@emilforsberg.com">
+                            <MdEmail />
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
