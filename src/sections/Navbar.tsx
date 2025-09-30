@@ -1,4 +1,5 @@
 
+import {BsHexagonFill} from "react-icons/bs";
 import { useState } from "react";
 
 const LINKS = [
@@ -18,7 +19,11 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar__inner container">
-                <a className="navbar__brand" href="#top" aria-label="Go to top">EF</a>
+
+                <a className="brand" href="#top" aria-label="Go to top">
+                    <BsHexagonFill className="brand__icon" aria-hidden="true" />
+                    <span className="brand__text" aria-hidden="true">EF</span>
+                </a>
 
                 <button
                     className="navbar__toggle"
