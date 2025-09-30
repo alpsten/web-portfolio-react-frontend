@@ -1,0 +1,33 @@
+
+.funfact {
+  text-align: left;
+}
+
+.funfact .bubble {
+  background:#0f1318cc;
+  border:1px dashed #335;
+  border-radius:14px;
+  color:#d8e1ea;
+  padding:4px 8px;
+}
+
+.bubble--narrow {
+  display:inline-block;
+  max-width:min(640px, 100%);
+  text-align:left;
+}
+
+.funfact__title {
+  margin:6px 6px 8px;
+  font-weight:600;
+  font-size:clamp(18px, 2.4vw, 18px);
+}
+
+.funfact__list {
+  margin:0 6px 8px;
+  padding-left:18px;
+}
+
+.funfact__list li {
+  margin:6px 0;
+}

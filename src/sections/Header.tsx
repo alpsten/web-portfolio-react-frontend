@@ -30,7 +30,7 @@ export default function Header() {
                         <span className="hero__subtitle"></span>Based in Stockholm
                         </p>
 
-                    <div className="social-icons">
+                    <div className="socials-inline">
                         <a className="social-icon social-icon--li" href="https://www.linkedin.com/in/forsberg-emil/" target="_blank" rel="noreferrer">
                             <FaLinkedin />
                         </a>
