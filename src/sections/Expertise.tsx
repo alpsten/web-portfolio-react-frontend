@@ -20,7 +20,7 @@ export default function Expertise() {
             title: "Databases",
             Icon: FaDatabase,
             text: "I enjoy working with databases and keep learning how to structure data effectively.",
-            stack: ["MySQL", "MongoDB", "PostgresSQ", "Data Modeling", "Query Optimization"],
+            stack: ["MySQL", "MongoDB", "PostgresSQ", "Spring Security", "Query Optimization"],
         },
         {
             title: "React",
