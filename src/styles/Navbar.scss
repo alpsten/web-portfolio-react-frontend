@@ -42,6 +42,12 @@
   border-radius:10px; cursor:pointer;
 }
 
+.navbar__toggle:hover {
+  background: #06402B;
+  border-color: #334256;
+  transform: translateY(-1px);
+}
+
 .navbar__burger {
   position:relative;
   width:18px;
