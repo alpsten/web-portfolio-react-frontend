@@ -8,6 +8,18 @@
   }
   .card-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
   .icon{width:36px;height:36px}
-  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-  .pill{background:#1b2128cc;border:1px solid #2a3340;padding:6px 10px;border-radius:999px;font-size:14px}
+
+  .pills {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px
+  }
+
+  .pill {
+    background:#1b2128cc;
+    border:1px solid #2a3340;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:14px}
 }

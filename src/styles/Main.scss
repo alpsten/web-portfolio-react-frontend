@@ -1,5 +1,4 @@
-:root{
-
+:root {
   --bg:#0d0f12;
   --card:#13161acc;
   --muted:#c7ced6bb;
@@ -211,4 +210,131 @@ html {
 .funfact__list li {
   margin:6px 0;
 }
+
+/* Projects */
+.projects__grid { display: grid; gap: 24px; }
+@media (min-width: 920px){ .projects__grid { grid-template-columns: repeat(2, 1fr); } }
+
+.project{
+  background: var(--card);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+  display: grid;
+  gap: 10px;
+  transition: transform .18s, box-shadow .18s;
+}
+.project:hover{ transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0,0,0,.34); }
+
+.project__cover{
+  background:
+          radial-gradient(120% 90% at 20% 0%, #925cff33 0%, transparent 60%),
+          radial-gradient(120% 90% at 100% 10%, #ff7eb333 0%, transparent 60%),
+          #141821;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project__cover img {
+  display:block;
+  width:100%;
+  height:auto;
+  transform: translateZ(0);
+}
+
+.project__title {
+  margin: 4px 0 0;
+}
+
+.project__links{ display:flex; gap:10px; flex-wrap:wrap }
+.btn--ghost{ background:#ffffff10; border:1px solid #2a3340; border-radius:999px; padding:8px 12px; text-decoration:none; color:var(--text); }
+.btn--ghost:hover{ background:#ffffff18; }
+
+
+/* Footer */
+.footer {
+  padding-block: 24px;
+  border-top:1px solid #232a33;
+  text-align:center;
+  display:grid;
+  gap:8px
+}
+
+.footer__icons {
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  font-size:26px
+}
+
+.footer__icons a {
+  color:#aeb6c2;
+  transition:color .18s, transform .18s ease;
+}
+
+.footer__icons a:hover{
+  color:#8ab4ff;
+  transform: translateY(-2px) scale(1.06);
+}
+
+.footer__note {
+  display:grid;
+  gap:4px;
+}
+
+.footer__link {
+  color:var(--a);
+  text-decoration:none;
+}
+
+.footer__link:hover {
+  text-decoration:underline;
+}
+
+.footer a {
+  color:var(--a);
+  text-decoration:none
+}
+
+.footer a:hover {
+  text-decoration:underline
+}
+
+.pills {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px
+}
+
+.pill {
+  background:#1b2128cc;
+  border:1px solid #2a3340;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:14px
+}
+
+.project__links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.btn--ghost {
+  background: #1DB954;
+  border: 1px solid #2a3340;
+  border-radius: 999px;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn--ghost:hover {
+  background: #06402B;
+  transform: translateY(-2px);
+}
+
 

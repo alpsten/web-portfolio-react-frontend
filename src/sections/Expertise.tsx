@@ -14,25 +14,25 @@ export default function Expertise() {
             title: "Java Developer",
             Icon: FaJava,
             text: "I code in Java and develop web/app solutions.",
-            stack: ["Java", "Spring Boot", "REST", "JPA/Hibernate"],
+            stack: ["Java", "Spring Boot", "JPA/Hibernate", "REST API", "Unit Testing", "Microservices"],
         },
         {
             title: "Databases",
             Icon: FaDatabase,
             text: "I can work with different databases.",
-            stack: ["MySQL", "MongoDB", "PostgresSQ"],
+            stack: ["MySQL", "MongoDB", "PostgresSQ", "Data Modeling", "Query Optimization"],
         },
         {
             title: "React",
             Icon: FaReact,
             text: "I build clean, robust web apps with a user-friendly interface.",
-            stack: ["React", "TypeScript", "JavaScript", "Bootstrap", "HTML5", "CSS3"],
+            stack: ["React", "TypeScript", "JavaScript", "Responsive Design", "SPA"],
         },
         {
             title: "DevOps",
             Icon: FaDocker,
             text: "I set up simple CI/CD pipelines and containerized apps.",
-            stack: ["Docker", "GitHub Actions", "Git"],
+            stack: ["Docker", "GitHub Actions", "Git", "CI/CD"],
         },
     ];
 
