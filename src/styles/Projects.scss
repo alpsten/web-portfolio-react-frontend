@@ -1,7 +1,7 @@
 
 .projects__grid {
   display: grid;
-  gap: 24px;
+  gap: 1rem;
 }
 
 @media (min-width: 920px) {
@@ -30,7 +30,7 @@
           radial-gradient(120% 90% at 20% 0%, #925cff33 0%, transparent 60%),
           radial-gradient(120% 90% at 100% 10%, #ff7eb333 0%, transparent 60%),
           #141821;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 
@@ -42,14 +42,18 @@
 }
 
 .project__title {
-  margin: 4px 0 0;
+  margin: 0.25rem 0 0.4rem;
+}
+
+.project .muted {
+  margin: 0 0 0.6rem;
 }
 
 .project__links {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 12px;
+  gap: 0.5rem 0.6rem;
+  margin-top: 0.25rem;
 }
 
 .btn--ghost {
@@ -60,6 +64,11 @@
   text-decoration: none;
   color: var(--text);
   transition: background 0.2s, transform 0.2s;
+}
+
+.btn.btn--ghost{
+  padding: 0.5rem 0.9rem;
+  font-size: 0.95rem;
 }
 
 .btn--ghost:hover {

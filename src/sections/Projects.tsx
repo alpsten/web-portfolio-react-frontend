@@ -2,7 +2,6 @@
 type Project = {
     title: string;
     description: string;
-    tags: string[];
     links: { label: string; href: string }[];
     image?: string;
 };
@@ -14,19 +13,17 @@ const projects: Project[] = [
     {
         title: "Fifteen Puzzle (Java)",
         description: "Classic sliding 15-puzzle implemented in Java.",
-        tags: ["Java", "OOP", "Algorithms"],
         links: [
-            { label: "GitHub", href: "https://github.com/EmilForzberg/FifteenPuzzle" }],
+            { label: "GitHub", href: "https://github.com/EmilForzberg/fifteen-puzzle" }],
         image: puzzleImg,
     },
     {
         title: "Fakestore Shop",
         description:
             "Simple 'fakestore' built in Bootstrap with Fakestore API.",
-        tags: ["Bootstrap", "JavaScript", "CSS", "REST"],
         links: [
             { label: "Fakestore API", href: "https://fakestoreapi.com" },
-            { label: "GitHub", href: "https://github.com/EmilForzberg/EmilForzberg.github.io}"},
+            { label: "GitHub", href: "https://github.com/EmilForzberg/fakstore-api}"},
             { label: "Website", href: "https://emilforzberg.github.io" }
         ],
         image: siteImg
@@ -54,12 +51,6 @@ export default function Projects() {
 
                         <h3 className="project__title">{p.title}</h3>
                         <p className="muted">{p.description}</p>
-
-                        <div className="pills">
-                            {p.tags.map((t) => (
-                                <span className="pill" key={t}>{t}</span>
-                            ))}
-                        </div>
 
                         <div className="project__links">
                             {p.links.map((l) => (

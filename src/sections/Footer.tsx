@@ -12,7 +12,7 @@ export default function Footer() {
 
             <div className="footer__note">
                 <p className="muted">Every suicide is one too many.</p>
-                <a className="footer__link" href="https://suicidezero.se/en/" target="_blank" rel="noreferrer">
+                <a className="footer__link" href="https://suicidezero.se/stod-oss/" target="_blank" rel="noreferrer">
                     Suicide Zero
                 </a>
             </div>

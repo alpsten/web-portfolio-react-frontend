@@ -35,7 +35,7 @@ export default function ContactForm() {
             <p className="muted">Working on an idea that’s ready to take off? I’d love to collaborate.</p>
 
             {submitted ? (
-                <div className="success">Thanks! I'll get back to you shortly.</div>
+                <div className="success">Perfect. I'll get in touch as fast as I can.</div>
             ) : (
                 <form className="contact__form" onSubmit={onSubmit} noValidate>
                     <div className="grid-2">
@@ -52,7 +52,7 @@ export default function ContactForm() {
                     <div className="grid-2">
                         <div className="field">
                             <label className="label" htmlFor="email">Email <span className="req">*</span></label>
-                            <input className="form__input" id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
+                            <input className="form__input" id="email" name="email" type="email" autoComplete="email" placeholder="your@email.com" required />
                         </div>
                         <div className="field">
                             <label className="label" htmlFor="phone">Phone (optional)</label>
