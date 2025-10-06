@@ -1,69 +1,65 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Emil Forsberg – Portfolio Website
 
-Currently, two official plugins are available:
+A personal portfolio website built with **React + TypeScript** (frontend) and **Java / Spring Boot** backend).
+The site showcases my projects and provides a **Contact Me form** that stores submissions in PostgreSQL
+and also triggers an email notification via **Brevo**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Frontend:**
+- React (TypeScript + Vite)
+- SCSS modules for styling
+- React Icons
+- Netlify for deployment
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Backend:**
+- Java Spring Boot
+- REST API for contact form
+- Deployed with Render
+- PostgreSQL for persistence
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Hero Section** with profile picture, intro, and social links.
+- **Expertise Section** highlighting skills (Java, React, Docker, etc).
+- **Projects Section** with screenshots, descriptions, and links (GitHub, APIs, live demos).
+- **Spotify Section** embedding one of my personal playlists.
+- **Contact Form** with validation, connected to my backend (Spring Boot API).
+- **Fun Facts Section** for a personal touch.
+- **Footer** with external links (GitHub, LinkedIn, Suicide Zero).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Deployment
+- Deployment Frontend: Deployed with Netlify
+- Backend: Deployed with Render
+- Both environments are connected via environment variables for correct API routing.
+
+---
+
+## Contact Form Flow
+User fills in First Name, Last Name, Email, Phone (optional), and Message.
+Frontend validates the input.
+Form data is sent via fetch → Spring Boot REST API (/api/contact).
+Backend stores the message in PostgreSQL + triggers email notification.
+User sees a confirmation message in the UI.
+
+---
+
+## Future Plants
+- Add more personal and better(!) projects with live demos.
+- Interactive demo of my Java 15 Puzzle Game inside the browser.
+- Blog section for writing about programming & learning.
+- A toggle switch so the background changes color.
+
+
+---
+
+# Acknowledgements
+Thanks to [@YujiSato](https://github.com/yujisatojr/react-portfolio-template/tree/master?tab=readme-ov-file)
+for template inspiration and [@mnauliady](https://www.flaticon.com/authors/mnauliady) for the favicon.

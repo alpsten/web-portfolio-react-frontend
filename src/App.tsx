@@ -2,9 +2,11 @@
 import Navbar from "./sections/Navbar.tsx";
 import Header from "./sections/Header";
 import Expertise from "./sections/Expertise";
-import ContactForm from './components/ContactForm';
+import Projects from "./sections/Projects";
 import SpotifySection from "./sections/SpotifySection.tsx";
+import ContactForm from './components/ContactForm';
 import FunFact from "./sections/FunFact.tsx";
+import Footer from "./sections/Footer.tsx";
 
 export default function App() {
     return (
@@ -14,13 +16,11 @@ export default function App() {
             <Navbar />
             <Header/>
             <Expertise/>
+            <Projects/>
             <SpotifySection/>
             <ContactForm/>
             <FunFact/>
-
-            <footer className="footer container">
-                <small className="muted">Made by Emil Forsberg</small>
-            </footer>
+            <Footer/>
 
         </main>
     );
