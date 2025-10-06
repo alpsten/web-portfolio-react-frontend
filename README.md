@@ -51,7 +51,7 @@ User sees a confirmation message in the UI.
 
 ---
 
-## Future Plants
+## Future Plans
 - Add more personal and better(!) projects with live demos.
 - Interactive demo of my Java 15 Puzzle Game inside the browser.
 - Blog section for writing about programming & learning.
