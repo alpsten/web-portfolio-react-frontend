@@ -58,11 +58,11 @@
 
 .btn--ghost {
   background: #1DB954;
-  border: 1px solid #2a3340;
+  border: 1px solid var(--border);
   border-radius: 999px;
   padding: 8px 14px;
   text-decoration: none;
-  color: var(--text);
+  color: #fff;
   transition: background 0.2s, transform 0.2s;
 }
 

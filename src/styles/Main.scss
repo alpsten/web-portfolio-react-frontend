@@ -6,6 +6,22 @@
   --a:#8ab4ff;
   --ring: 0 0 0 3px var(--a);
   --radius:16px;
+  --border:#2a3340;
+  --navbar-bg:#0d0f12cc;
+  --navbar-border:#1c222b;
+  --pill-bg:#1b2128cc;
+}
+
+[data-theme="light"] {
+  --bg:#f5f7fa;
+  --card:#ffffffcc;
+  --muted:#5a6370;
+  --text:#1a1d21;
+  --a:#2563eb;
+  --border:#d1d5db;
+  --navbar-bg:#ffffffcc;
+  --navbar-border:#e5e7eb;
+  --pill-bg:#e5e7ebcc;
 }
 
 * {
@@ -26,8 +42,8 @@ body {
 .site {
   display:flex;
   flex-direction:column;
-  gap:56px;
-  padding-bottom:56px
+  gap:96px;
+  padding-bottom:96px
 }
 
 .container {
@@ -70,11 +86,31 @@ h3 {
 }
 
 .pill {
-  background:#1b2128cc;
-  border:1px solid #2a3340;
+  background:var(--pill-bg);
+  border:1px solid var(--border);
   padding:6px 10px;
   border-radius:999px;
   font-size:14px
 }
 
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 

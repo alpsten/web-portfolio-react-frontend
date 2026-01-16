@@ -1,8 +1,10 @@
 
 import {BsHexagonFill} from "react-icons/bs";
 import { useState } from "react";
+import ThemeToggle from "../components/ThemeToggle";
 
 const LINKS = [
+    { href: "#about",     label: "About"     },
     { href: "#expertise", label: "Expertise" },
     { href: "#projects",  label: "Projects"  },
     { href: "#spotify",   label: "Spotify"   },
@@ -25,15 +27,6 @@ export default function Navbar() {
                     <span className="brand__text" aria-hidden="true">EF</span>
                 </a>
 
-                <button
-                    className="navbar__toggle"
-                    aria-label="Toggle menu"
-                    aria-expanded={open}
-                    onClick={() => setOpen(!open)}
-                >
-                    <span className="navbar__burger" />
-                </button>
-
                 <ul className={`navbar__menu ${open ? "is-open" : ""}`}>
                     {LINKS.map((l) => (
                         <li key={l.href}>
@@ -41,6 +34,18 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
+
+                <div className="navbar__actions">
+                    <ThemeToggle />
+                    <button
+                        className="navbar__toggle"
+                        aria-label="Toggle menu"
+                        aria-expanded={open}
+                        onClick={() => setOpen(!open)}
+                    >
+                        <span className="navbar__burger" />
+                    </button>
+                </div>
             </div>
         </nav>
     );

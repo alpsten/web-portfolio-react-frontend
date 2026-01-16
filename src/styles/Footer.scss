@@ -1,7 +1,7 @@
 
 .footer {
   padding-block: 24px;
-  border-top:1px solid #232a33;
+  border-top:1px solid var(--border);
   text-align:center;
   display:grid;
   gap:8px
@@ -15,7 +15,7 @@
 }
 
 .footer__icons a {
-  color:#aeb6c2;
+  color:var(--muted);
   transition:color .18s, transform .18s ease;
 }
 
@@ -60,8 +60,8 @@
   display:inline-flex;
   align-items:center;
   gap:8px;
-  background:#1b2128cc;
-  border:1px solid #2a3340;
+  background:var(--pill-bg);
+  border:1px solid var(--border);
   padding:10px 14px;
   border-radius:999px;
   color:var(--text);
@@ -69,5 +69,5 @@
 }
 
 .social:hover {
-  background:#232a33cc
+  background:var(--card);
 }
