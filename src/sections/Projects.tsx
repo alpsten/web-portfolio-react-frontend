@@ -14,7 +14,7 @@ const projects: Project[] = [
         title: "Fifteen Puzzle (Java)",
         description: "Classic sliding 15-puzzle implemented in Java.",
         links: [
-            { label: "GitHub", href: "https://github.com/EmilForzberg/fifteen-puzzle" }],
+            { label: "GitHub", href: "https://github.com/alpsten/fifteen-puzzle" }],
         image: puzzleImg,
     },
     {
@@ -23,7 +23,7 @@ const projects: Project[] = [
             "Simple 'fakestore' built in Bootstrap with Fakestore API.",
         links: [
             { label: "Fakestore API", href: "https://fakestoreapi.com" },
-            { label: "GitHub", href: "https://github.com/EmilForzberg/fakstore-api}"},
+            { label: "GitHub", href: "https://github.com/alpsten/fakestore-api" },
             { label: "Website", href: "https://emilforzberg.github.io" }
         ],
         image: siteImg

@@ -6,7 +6,7 @@ export default function Footer() {
 
         <footer className="footer container">
             <div className="footer__icons">
-                <a href="https://github.com/EmilForzberg" target="_blank" rel="noreferrer"><FaGithub /></a>
+                <a href="https://github.com/alpsten" target="_blank" rel="noreferrer"><FaGithub /></a>
                 <a href="https://www.linkedin.com/in/forsberg-emil/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
             </div>
 

@@ -11,7 +11,7 @@ export default function Header() {
                 <figure className="hero__avatar">
                     <img
                         src={avatar}
-                        alt="*this is me not loading*"
+                        alt="Emil Forsberg"
                         width={160}
                         height={160}
                         loading="lazy"
@@ -23,7 +23,7 @@ export default function Header() {
                     <h1 className="hero__title">Emil Forsberg</h1>
 
                         <p>
-                        <span className="hero__subtitle"></span>Java Developer on Mac <FaApple aria-label="Apple" />
+                        <span className="hero__subtitle"></span>Software Developer on Mac <FaApple aria-label="Apple" />
                         </p>
 
                         <p>
@@ -34,7 +34,7 @@ export default function Header() {
                         <a className="social-icon social-icon--li" href="https://www.linkedin.com/in/forsberg-emil/" target="_blank" rel="noreferrer">
                             <FaLinkedin />
                         </a>
-                        <a className="social-icon social-icon--gh" href="https://github.com/EmilForzberg" target="_blank" rel="noreferrer">
+                        <a className="social-icon social-icon--gh" href="https://github.com/alpsten" target="_blank" rel="noreferrer">
                             <FaGithub />
                         </a>
                         <a className="social-icon social-icon--mail" href="mailto:hello@emilforsberg.com">

@@ -4,7 +4,7 @@ export default function SpotifySection() {
         <section id="spotify" className="container spotify">
 
             <h2>Currently Listening</h2>
-            <p className="muted">Currently on while coding.</p>
+            <p className="muted">What I listen to while coding.</p>
 
             <div className="player-wrap player-wrap--bleed">
                 <iframe
