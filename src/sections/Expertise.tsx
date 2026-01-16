@@ -1,5 +1,6 @@
 
-import {FaJava, FaReact, FaDocker, FaDatabase} from "react-icons/fa";
+import {FaJava, FaReact, FaDocker, FaDatabase, FaCloud} from "react-icons/fa";
+import {SiKubernetes} from "react-icons/si";
 
 type Bucket = {
     title: string;
@@ -20,7 +21,7 @@ export default function Expertise() {
             title: "Databases",
             Icon: FaDatabase,
             text: "I enjoy working with databases and keep learning how to structure data effectively.",
-            stack: ["MySQL", "MongoDB", "PostgresSQ", "Spring Security", "Query Optimization"],
+            stack: ["MySQL", "MongoDB", "PostgreSQL", "Spring Security", "Query Optimization"],
         },
         {
             title: "React",
@@ -31,8 +32,20 @@ export default function Expertise() {
         {
             title: "DevOps",
             Icon: FaDocker,
-            text: "I’ve started setting up CI/CD pipelines and containerizing apps to make projects run smoothly.",
+            text: "I've started setting up CI/CD pipelines and containerizing apps to make projects run smoothly.",
             stack: ["Docker", "GitHub Actions", "Git", "CI/CD"],
+        },
+        {
+            title: "Cloud",
+            Icon: FaCloud,
+            text: "I'm learning cloud platforms to deploy and scale applications in modern infrastructure.",
+            stack: ["AWS", "Azure", "Cloud Architecture"],
+        },
+        {
+            title: "Kubernetes",
+            Icon: SiKubernetes,
+            text: "I'm exploring container orchestration to manage and scale containerized applications.",
+            stack: ["K8s", "Container Orchestration", "Pods"],
         },
     ];
 
