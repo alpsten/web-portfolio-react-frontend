@@ -1,5 +1,5 @@
 
-# Emil Forsberg – Portfolio Website
+# Emil Alpsten – Portfolio Website
 
 A personal portfolio website built with **React + TypeScript** (frontend) and **Java / Spring Boot** backend).
 The site showcases my projects and provides a **Contact Me form** that stores submissions in PostgreSQL

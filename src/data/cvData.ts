@@ -69,12 +69,12 @@ export interface CVData {
 }
 
 export const cvData: CVData = {
-    name: "Emil Forsberg",
+    name: "Emil Alpsten",
     headshot: "/src/assets/avatar-react.webp",
     contact: {
         phone: "(+46) 076 209 34 56",
-        email: "emil.forsberg@yh.nackademin.com",
-        linkedin: "LinkedIn.com/in/Forsberg-Emil",
+        email: "emil.alpsten@yh.nackademin.com",
+        linkedin: "linkedin.com/in/emil-alpsten",
         github: "GitHub.com/alpsten",
         location: "Stockholm",
     },
