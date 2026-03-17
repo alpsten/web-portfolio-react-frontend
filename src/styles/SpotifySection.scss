@@ -1,14 +1,59 @@
 
-.spotify .player-wrap {
-  max-width: 900px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+.spotify__grid {
+  display: grid;
+  gap: 16px;
 }
 
-.spotify iframe {
-  display: block;
-  width: 100%;
-  height: 475px;
-  border: 0;
+@media (min-width: 820px) {
+  .spotify__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.spotify__card {
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+  display: grid;
+  align-content: start;
+}
+
+.spotify__card-head {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.spotify__icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  color: var(--a);
+}
+
+.spotify__title {
+  margin: 0;
+}
+
+.spotify__title-link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.spotify__title-link:hover {
+  color: var(--a);
+}
+
+.spotify__description {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .spotify__card {
+    padding: 16px;
+  }
 }

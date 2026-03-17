@@ -45,6 +45,7 @@ export default function Bio() {
                             <li>Hip-hop enthusiast</li>
                             <li>Bucket list: Tokyo</li>
                             <li>Science fiction nerd</li>
+                            <li>Former Apple specialist</li>
                         </ul>
                     </div>
                 </aside>

@@ -7,7 +7,7 @@
 
   @media (min-width:820px) {
     .cards {
-      grid-template-columns:repeat(3,1fr)
+      grid-template-columns:repeat(2,1fr)
     }
   }
 
@@ -35,7 +35,7 @@
     display:flex;
     flex-wrap:wrap;
     gap:8px;
-    margin-top:10px
+    margin-top:12px;
   }
 
   .pill {
@@ -43,5 +43,13 @@
     border:1px solid var(--border);
     padding:6px 10px;
     border-radius:999px;
-    font-size:14px}
+    font-size:14px;
+    color: var(--text);
+  }
+
+  @media (max-width:819px) {
+    .card {
+      padding: 16px;
+    }
+  }
 }

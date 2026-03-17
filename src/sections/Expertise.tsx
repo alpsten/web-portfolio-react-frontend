@@ -1,6 +1,5 @@
 
-import {FaJava, FaReact, FaDocker, FaDatabase, FaCloud} from "react-icons/fa";
-import {SiKubernetes} from "react-icons/si";
+import { FaDatabase, FaReact, FaServer, FaWrench } from "react-icons/fa";
 
 type Bucket = {
     title: string;
@@ -12,40 +11,28 @@ type Bucket = {
 export default function Expertise() {
     const buckets: Bucket[] = [
         {
-            title: "Java Developer",
-            Icon: FaJava,
-            text: "I work mainly with Java to build web and application solutions.",
-            stack: ["Java", "Spring Boot", "JPA/Hibernate", "REST API", "Unit Testing", "Microservices"],
+            title: "Backend",
+            Icon: FaServer,
+            text: "Core backend technologies I work with most.",
+            stack: ["Java", "Spring Boot", "Node.js", "Express.js", "REST APIs", "and more..."],
         },
         {
-            title: "Databases",
-            Icon: FaDatabase,
-            text: "I enjoy working with databases and keep learning how to structure data effectively.",
-            stack: ["MySQL", "MongoDB", "PostgreSQL", "Spring Security", "Query Optimization"],
-        },
-        {
-            title: "React",
+            title: "Frontend",
             Icon: FaReact,
-            text: "I focus on writing maintainable code and creating applications that are easy to use.",
-            stack: ["React", "TypeScript", "JavaScript", "Responsive Design", "SPA"],
+            text: "Frontend tools I use to build responsive interfaces.",
+            stack: ["React", "TypeScript", "JavaScript", "HTML", "Tailwind", "and more..."],
         },
         {
-            title: "DevOps",
-            Icon: FaDocker,
-            text: "I've started setting up CI/CD pipelines and containerizing apps to make projects run smoothly.",
-            stack: ["Docker", "GitHub Actions", "Git", "CI/CD"],
+            title: "Data",
+            Icon: FaDatabase,
+            text: "Data and integration tools I use in real projects.",
+            stack: ["Prisma", "MongoDB", "MySQL", "Supabase", "Zod", "and more..."],
         },
         {
-            title: "Cloud",
-            Icon: FaCloud,
-            text: "I'm learning cloud platforms to deploy and scale applications in modern infrastructure.",
-            stack: ["AWS", "Azure", "Cloud Architecture"],
-        },
-        {
-            title: "Kubernetes",
-            Icon: SiKubernetes,
-            text: "I'm exploring container orchestration to manage and scale containerized applications.",
-            stack: ["K8s", "Container Orchestration", "Pods"],
+            title: "Tooling",
+            Icon: FaWrench,
+            text: "Tools and libraries I rely on for delivery and product work.",
+            stack: ["Git", "Vite", "Bun", "TanStack Query", "Stripe SDK", "and more..."],
         },
     ];
 

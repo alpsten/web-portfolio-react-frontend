@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import ThemeToggle from "../components/ThemeToggle";
 
 const LINKS = [
     { href: "#about",     label: "About"     },
@@ -34,7 +33,6 @@ export default function Navbar() {
                 </ul>
 
                 <div className="navbar__actions">
-                    <ThemeToggle />
                     <button
                         className="navbar__toggle"
                         aria-label="Toggle menu"
