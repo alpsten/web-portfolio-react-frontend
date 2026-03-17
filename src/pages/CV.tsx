@@ -62,6 +62,8 @@ export default function CV() {
                     </div>
                 </div>
 
+                <div className="cv-divider cv-divider--header" aria-hidden="true" />
+
                 {/* Header */}
                 <header className="cv-header">
                     <h1 className="cv-name">{name}</h1>
@@ -78,10 +80,12 @@ export default function CV() {
                             <FaPhone />
                             <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                         </li>
-                        <li>
-                            <FaEnvelope />
-                            <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                        </li>
+                        {contact.emails.map((email) => (
+                            <li key={email}>
+                                <FaEnvelope />
+                                <a href={`mailto:${email}`}>{email}</a>
+                            </li>
+                        ))}
                         <li>
                             <FaLinkedin />
                             <a href={`https://${contact.linkedin}`} target="_blank" rel="noreferrer">
@@ -107,7 +111,7 @@ export default function CV() {
                 </ExpandableSection>
 
                 {/* Education */}
-                <ExpandableSection title={labels.education} defaultOpen={true}>
+                <ExpandableSection title={labels.education}>
                     <div className="cv-education">
                         {education.map((edu, index) => (
                             <article key={index} className="cv-education__item">
@@ -119,11 +123,20 @@ export default function CV() {
                                     <span className="cv-education__period">{edu.period}</span>
                                 </div>
                                 {edu.courses && (
-                                    <ul className="cv-education__courses">
-                                        {edu.courses.map((course, i) => (
-                                            <li key={i}>{course}</li>
-                                        ))}
-                                    </ul>
+                                    <div className="cv-education__courses">
+                                        <div className="cv-education__courses-head">
+                                            <span>{labels.course}</span>
+                                            <span>{labels.yhPoints}</span>
+                                        </div>
+                                        <ul className="cv-education__courses-list">
+                                            {edu.courses.map((course) => (
+                                                <li key={course.name} className="cv-education__course-row">
+                                                    <span>{course.name}</span>
+                                                    <span>{course.points}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 )}
                             </article>
                         ))}
@@ -131,7 +144,7 @@ export default function CV() {
                 </ExpandableSection>
 
                 {/* Experience */}
-                <ExpandableSection title={labels.experience} defaultOpen={true}>
+                <ExpandableSection title={labels.experience}>
                     <div className="cv-experience">
                         {experience.map((exp, index) => (
                             <article key={index} className="cv-experience__item">
@@ -163,7 +176,7 @@ export default function CV() {
                                 <h3 className="cv-skills__category">{skill.category}</h3>
                                 <ul className="cv-skills__list">
                                     {skill.items.map((item, i) => (
-                                        <li key={i}>{item}</li>
+                                        <li key={i} className="cv-skills__item">{item}</li>
                                     ))}
                                 </ul>
                             </div>
@@ -186,20 +199,26 @@ export default function CV() {
                 {/* References */}
                 <ExpandableSection title={labels.references}>
                     <div className="cv-references">
-                        {references.map((ref, index) => (
-                            <article key={index} className="cv-references__item">
-                                <h3 className="cv-references__name">{ref.name}</h3>
-                                <p className="cv-references__title">{ref.title}, {ref.company}</p>
-                                <p className="cv-references__contact">
-                                    <a href={`tel:${ref.phone}`}>{ref.phone}</a>
-                                    <a href={`mailto:${ref.email}`}>{ref.email}</a>
-                                </p>
-                            </article>
-                        ))}
+                        <ul className="cv-references__list">
+                            {references.map((ref, index) => (
+                                <li key={index} className="cv-references__list-item">
+                                    <article className="cv-references__item">
+                                        <h3 className="cv-references__name">{ref.name}</h3>
+                                        <ul className="cv-references__details">
+                                            <li>{ref.title}, {ref.company}</li>
+                                            <li>{ref.relationship[lang]}</li>
+                                            {ref.period && <li>{ref.period}</li>}
+                                        </ul>
+                                    </article>
+                                </li>
+                            ))}
+                        </ul>
+                        <p className="cv-references__note">{labels.referencesNote}</p>
                     </div>
                 </ExpandableSection>
 
                 {/* Print Button */}
+                <div className="cv-divider cv-divider--actions no-print" aria-hidden="true" />
                 <div className="cv-actions no-print">
                     <button className="cv-print-btn" onClick={() => window.print()}>
                         {labels.print}

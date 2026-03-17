@@ -13,6 +13,14 @@
   padding: 48px 32px;
 }
 
+.cv-divider {
+  border-top: 2px solid #1a1a1a;
+}
+
+.cv-divider--actions {
+  margin: 48px 0;
+}
+
 /* Language Toggle */
 .cv-lang-toggle {
   display: flex;
@@ -65,7 +73,7 @@
 /* Header */
 .cv-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin: 16px 0 24px;
   padding-bottom: 24px;
   border-bottom: 2px solid #1a1a1a;
 }
@@ -126,6 +134,7 @@
 }
 
 .cv-contact-list li svg {
+  display: block;
   width: 16px;
   color: #666;
   flex-shrink: 0;
@@ -226,7 +235,6 @@
   font-size: 17px;
   font-weight: 600;
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .cv-experience__subtitle {
@@ -282,7 +290,6 @@
   font-size: 17px;
   font-weight: 600;
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .cv-education__degree {
@@ -300,42 +307,71 @@
 }
 
 .cv-education__courses {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
+  margin-top: 12px;
 }
 
-.cv-education__courses li {
-  background: #f0eeeb;
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 13px;
+.cv-education__courses-head,
+.cv-education__course-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px;
+  gap: 16px;
+  align-items: center;
+}
+
+.cv-education__courses-head {
+  padding: 0 0 8px;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
   font-family: system-ui, -apple-system, sans-serif;
-  color: #444;
-  transition: background 0.2s;
 }
 
-.cv-education__courses li:hover {
-  background: #e5e3df;
+.cv-education__courses-head span:last-child,
+.cv-education__course-row span:last-child {
+  text-align: right;
+}
+
+.cv-education__courses-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv-education__course-row {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #eee;
+}
+
+.cv-education__course-row:last-child {
+  border-bottom: none;
 }
 
 /* Skills */
 .cv-skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.cv-skills__group {
+  padding: 14px 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #fafafa;
 }
 
 .cv-skills__category {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0 0 8px;
-  color: #555;
+  letter-spacing: 0.1em;
+  margin: 0 0 12px;
+  color: #2f2f2f;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
@@ -343,17 +379,27 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  gap: 6px;
 }
 
-.cv-skills__list li {
-  padding: 4px 0;
-  font-size: 15px;
+.cv-skills__item {
+  padding: 0 0 0 12px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.3;
   color: #333;
-  transition: padding-left 0.2s;
 }
 
-.cv-skills__list li:hover {
-  padding-left: 8px;
+.cv-skills__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #999;
 }
 
 /* Languages */
@@ -388,13 +434,25 @@
 /* References */
 .cv-references {
   display: grid;
+  gap: 16px;
+}
+
+.cv-references__list {
+  display: grid;
   gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 @media (min-width: 600px) {
-  .cv-references {
+  .cv-references__list {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.cv-references__list-item {
+  margin: 0;
 }
 
 .cv-references__item {
@@ -411,28 +469,28 @@
 .cv-references__name {
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 4px;
+  margin: 0 0 10px;
+}
+
+.cv-references__details {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.cv-references__details li {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
-.cv-references__title {
+.cv-references__note {
+  margin: 16px 0 0;
   font-size: 14px;
-  color: #555;
-  margin: 0 0 8px;
-}
-
-.cv-references__contact {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-size: 13px;
-  margin: 0;
-}
-
-.cv-references__contact a {
-  color: #444;
-  text-decoration: none;
-  transition: color 0.2s;
+  font-style: italic;
+  color: #666;
 }
 
 .cv-references__contact a:hover {
@@ -442,7 +500,6 @@
 
 /* Actions */
 .cv-actions {
-  margin-top: 40px;
   text-align: center;
 }
 
@@ -497,7 +554,6 @@
 
   .cv-experience__item:hover,
   .cv-education__courses li:hover,
-  .cv-skills__list li:hover,
   .cv-references__item:hover {
     background: inherit;
     padding-left: inherit;
@@ -557,5 +613,10 @@
   .cv-lang-toggle {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .cv-education__courses-head,
+  .cv-education__course-row {
+    grid-template-columns: minmax(0, 1fr) 72px;
   }
 }

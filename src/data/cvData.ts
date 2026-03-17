@@ -1,6 +1,6 @@
 export interface ContactInfo {
     phone: string;
-    email: string;
+    emails: string[];
     linkedin: string;
     github: string;
     location: string;
@@ -16,10 +16,20 @@ export interface Language {
     level: string;
 }
 
+export interface EducationCourse {
+    name: string;
+    points: number;
+}
+
 export interface Reference {
     name: string;
     title: string;
     company: string;
+    relationship: {
+        sv: string;
+        en: string;
+    };
+    period?: string;
     phone: string;
     email: string;
 }
@@ -28,7 +38,7 @@ export interface Education {
     institution: string;
     degree: string;
     period: string;
-    courses?: string[];
+    courses?: EducationCourse[];
     description?: string;
 }
 
@@ -51,9 +61,12 @@ export interface CVContent {
         profile: string;
         experience: string;
         education: string;
+        course: string;
+        yhPoints: string;
         skills: string;
         languages: string;
         references: string;
+        referencesNote: string;
         print: string;
         backToPortfolio: string;
     };
@@ -73,16 +86,36 @@ export const cvData: CVData = {
     headshot: "/src/assets/avatar-react.webp",
     contact: {
         phone: "(+46) 076 209 34 56",
-        email: "emil.alpsten@yh.nackademin.com",
+        emails: [
+            "emil.forsberg@yh.nackademin.se",
+            "hello.alpsten@gmail.com",
+        ],
         linkedin: "linkedin.com/in/emil-alpsten",
-        github: "GitHub.com/alpsten",
+        github: "github.com/alpsten",
         location: "Stockholm",
     },
     references: [
         {
+            name: "Johan Wirlén Enroth",
+            title: "CEO",
+            company: "Rhyme Sthlm",
+            relationship: {
+                sv: "LIA-handledare",
+                en: "Internship supervisor",
+            },
+            period: "2025 - 2026",
+            phone: "",
+            email: "",
+        },
+        {
             name: "Anders Lakwani",
             title: "Store Manager",
             company: "C&C Sweden AB",
+            relationship: {
+                sv: "Tidigare chef",
+                en: "Former manager",
+            },
+            period: "2023 - 2024",
             phone: "(+46) 070 432 77 XX",
             email: "a.lakhwani@cec.com",
         },
@@ -90,30 +123,49 @@ export const cvData: CVData = {
             name: "Nicklas Johansson",
             title: "Country Field Staff Manager",
             company: "Apple Inc.",
+            relationship: {
+                sv: "Tidigare chef",
+                en: "Former manager",
+            },
+            period: "2019 - 2020",
             phone: "(+46) 072 215 17 XX",
             email: "nicklas_johansson@apple.com",
         },
     ],
     sv: {
         title: "Javautvecklare",
-        profile: `Jag är en studerande Javautvecklare från Nackademins yrkeshögskola, just nu söker jag en givande och spännande arbetsplats att göra min LIA på. Jag strävar efter att få skapa smarta och hållbara lösningar med moderna utvecklingsverktyg som IntelliJ och Visual Studio Code. Jag har praktisk erfarenhet av agil-utveckling och testdriven design genom utbildningen. Jag söker en roll där jag kan växa och utmanas som utvecklare - där jag kan bidra och få ta del av spännande projekt i en framåttänkande miljö.`,
+        profile: `Jag är Javautvecklare med fokus på backend och moderna webbapplikationer.
+        Jag bygger strukturerade och testbara lösningar i Java, Node.js och React,
+        med särskilt intresse för API-design, validering och hållbar kod.
+        Under min LIA på Rhyme Sthlm har jag arbetat med React, Node.js, Stripe och Zod,
+        vilket har stärkt mig i att omsätta krav till fungerande lösningar i team.
+        Jag trivs bäst i samarbeten där man ställer frågor tidigt, itererar snabbt
+        och löser verkliga problem med tydlig och genomtänkt kod.`,
         labels: {
             profile: "Profil",
             experience: "Yrkeserfarenhet",
             education: "Utbildning",
+            course: "Kurs",
+            yhPoints: "YH-Poäng",
             skills: "Färdigheter",
             languages: "Språk",
             references: "Referenser",
+            referencesNote: "Kontaktuppgifter lämnas på begäran.",
             print: "Skriv ut / Spara som PDF",
             backToPortfolio: "Tillbaka till portfolio",
         },
         skills: [
-            { category: "Programmering", items: ["Java", "JavaScript", "C"] },
-            { category: "Databas", items: ["MySQL"] },
-            { category: "Frontend", items: ["HTML", "CSS"] },
-            { category: "Metodik", items: ["Objektorienterad", "Strukturerad"] },
-            { category: "Soft Skills", items: ["Kommunikativ", "Lagspelare"] },
-            { category: "Pågående", items: ["Python (Harvard)", "React (W3 Schools)"] },
+            { category: "Backendtekniker", items: ["Java", "Kotlin", "Node.js", "TypeScript / JavaScript", "C"] },
+            { category: "Backend", items: ["Spring Boot", "Express.js"] },
+            { category: "Frontend", items: ["React", "HTML", "Tailwind", "CSS", "SCSS"] },
+            { category: "Data", items: ["Prisma", "MongoDB", "Supabase", "MySQL"] },
+            { category: "Validering", items: ["Zod", "TanStack Query", "TanStack Table", "TanStack Virtual"] },
+            { category: "Autentisering", items: ["Clerk", "Stripe SDK"] },
+            { category: "Verktyg", items: ["Git", "Vite", "Bun"] },
+            { category: "Koncept", items: ["Mikrotjänster", "REST API:er", "API-design", "Datavalidering", "Caching"] },
+            { category: "Utforskar", items: ["Molnteknik", "Kubernetes", "DevOps-arbetssätt"] },
+            { category: "Metodik", items: ["Objektorienterad design", "Strukturerad problemlösning", "Testbar kod", "Iterativ utveckling", "Agilt samarbete"] },
+            { category: "Egenskaper", items: ["Kommunikativ", "Samarbetsorienterad", "Noggrann", "Analytisk", "Problemlösande"] },
         ],
         languages: [
             { name: "Svenska", level: "Modersmål" },
@@ -126,16 +178,20 @@ export const cvData: CVData = {
                 degree: "Javautvecklare",
                 period: "2024 - 2026",
                 courses: [
-                    "Javautveckling",
-                    "Objektorienterad Programmering",
-                    "Databasteknik och Java",
-                    "Designmönster, Analys och Design",
-                    "Funktionell Programmering",
-                    "IT-Säkerhet",
-                    "Frontend",
-                    "Affärsmannaskap",
-                    "Java Backend 1 & 2",
-                    "DevOps",
+                    { name: "Javautveckling", points: 20 },
+                    { name: "Objektorienterad programmering och Java", points: 50 },
+                    { name: "Designmönster, analys och design", points: 15 },
+                    { name: "Affärsmannaskap", points: 10 },
+                    { name: "Databasteknik och Java", points: 25 },
+                    { name: "Funktionell programmering", points: 20 },
+                    { name: "Frontend", points: 25 },
+                    { name: "IT-säkerhet", points: 15 },
+                    { name: "Java backend 1", points: 20 },
+                    { name: "Java backend 2", points: 20 },
+                    { name: "DevOps", points: 20 },
+                    { name: "LIA", points: 110 },
+                    { name: "Teknikfördjupning", points: 20 },
+                    { name: "Examensarbete", points: 30 },
                 ],
             },
             {
@@ -145,6 +201,16 @@ export const cvData: CVData = {
             },
         ],
         experience: [
+            {
+                company: "Rhyme Sthlm",
+                role: "LIA-praktikant",
+                period: "2025 - 2026",
+                description: [
+                    "Arbetade med React i frontend och Node.js i backend för att utveckla funktioner i pågående projekt.",
+                    "Arbetade med Stripe-integrationer och betalningsflöden.",
+                    "Använde Zod och TanStack för validering och datahantering i applikationen.",
+                ],
+            },
             {
                 company: "C&C Sweden AB",
                 subtitle: "(tidigare MacSupport)",
@@ -157,17 +223,16 @@ export const cvData: CVData = {
             },
             {
                 company: "Webhallen",
-                subtitle: "Bredden",
                 role: "Butiksmedarbetare",
                 period: "2020 - 2021",
                 description: [
-                    "Jobbade på huvudlagret i Upplands Väsby i butiken.",
+                    "Jobbade i butiken på dåvarande huvudlagret Bredden, Upplands Väsby.",
                     "Tog hand om kunder, frontning av produkter och hämtade beställningar.",
                 ],
             },
             {
                 company: "Apple Inc.",
-                subtitle: "Slash.ten",
+                subtitle: "(genom Slash.ten)",
                 role: "Specialist",
                 period: "2019 - 2020",
                 description: [
@@ -189,24 +254,38 @@ export const cvData: CVData = {
     },
     en: {
         title: "Java Developer",
-        profile: `I am a Java Developer student at Nackademin vocational college, currently seeking a rewarding and exciting workplace for my internship. I strive to create smart and sustainable solutions using modern development tools like IntelliJ and Visual Studio Code. I have practical experience with agile development and test-driven design through my education. I'm looking for a role where I can grow and be challenged as a developer - where I can contribute and participate in exciting projects in a forward-thinking environment.`,
+        profile: `I am a Java developer focused on backend systems and modern web applications.
+        I build structured, testable solutions in Java, Node.js, and React,
+        with a strong interest in API design, validation, and maintainable code.
+        During my internship at Rhyme Sthlm, I worked with React, Node.js, Stripe, and Zod,
+        which strengthened my ability to turn requirements into working solutions in a team setting.
+        I do my best work in collaborative environments where people ask questions early,
+        iterate quickly, and solve real problems with clear, well-considered code.`,
         labels: {
             profile: "Profile",
             experience: "Work Experience",
             education: "Education",
+            course: "Course",
+            yhPoints: "YH Credits",
             skills: "Skills",
             languages: "Languages",
             references: "References",
+            referencesNote: "Contact details available upon request.",
             print: "Print / Save as PDF",
             backToPortfolio: "Back to portfolio",
         },
         skills: [
-            { category: "Programming", items: ["Java", "JavaScript", "C"] },
-            { category: "Database", items: ["MySQL"] },
-            { category: "Frontend", items: ["HTML", "CSS"] },
-            { category: "Methodology", items: ["Object-Oriented", "Structured"] },
-            { category: "Soft Skills", items: ["Communicative", "Team Player"] },
-            { category: "In Progress", items: ["Python (Harvard)", "React (W3 Schools)"] },
+            { category: "Languages", items: ["Java", "Kotlin", "Node.js", "TypeScript / JavaScript", "C"] },
+            { category: "Backend", items: ["Spring Boot", "Express.js"] },
+            { category: "Frontend", items: ["React", "HTML", "Tailwind", "CSS", "SCSS"] },
+            { category: "Data", items: ["Prisma", "MongoDB", "Supabase", "MySQL"] },
+            { category: "Validation", items: ["Zod", "TanStack Query", "TanStack Table", "TanStack Virtual"] },
+            { category: "Authentication", items: ["Clerk", "Stripe SDK"] },
+            { category: "Tooling", items: ["Git", "Vite", "Bun"] },
+            { category: "Concepts", items: ["Microservices", "REST APIs", "API design", "Data validation", "Caching"] },
+            { category: "Learning", items: ["Cloud technologies", "Kubernetes", "DevOps practices"] },
+            { category: "Methodology", items: ["Object-oriented design", "Structured problem solving", "Testable code", "Iterative development", "Agile collaboration"] },
+            { category: "Soft Skills", items: ["Communicative", "Collaborative", "Detail-oriented", "Analytical", "Problem-solving"] },
         ],
         languages: [
             { name: "Swedish", level: "Native" },
@@ -219,16 +298,20 @@ export const cvData: CVData = {
                 degree: "Java Developer",
                 period: "2024 - 2026",
                 courses: [
-                    "Java Development",
-                    "Object-Oriented Programming",
-                    "Database Technology and Java",
-                    "Design Patterns, Analysis and Design",
-                    "Functional Programming",
-                    "IT Security",
-                    "Frontend",
-                    "Business Skills",
-                    "Java Backend 1 & 2",
-                    "DevOps",
+                    { name: "Java Development", points: 20 },
+                    { name: "Object-Oriented Programming and Java", points: 50 },
+                    { name: "Design Patterns, Analysis and Design", points: 15 },
+                    { name: "Business Skills", points: 10 },
+                    { name: "Database Technology and Java", points: 25 },
+                    { name: "Functional Programming", points: 20 },
+                    { name: "Frontend", points: 25 },
+                    { name: "IT Security", points: 15 },
+                    { name: "Java Backend 1", points: 20 },
+                    { name: "Java Backend 2", points: 20 },
+                    { name: "DevOps", points: 20 },
+                    { name: "LIA Internship", points: 110 },
+                    { name: "Technical Specialization", points: 20 },
+                    { name: "Degree Project", points: 30 },
                 ],
             },
             {
@@ -238,6 +321,16 @@ export const cvData: CVData = {
             },
         ],
         experience: [
+            {
+                company: "Rhyme Sthlm",
+                role: "Intern",
+                period: "2025 - 2026",
+                description: [
+                    "Worked with React in the frontend and Node.js in the backend to build features in active projects.",
+                    "Worked on Stripe integrations and payment flows.",
+                    "Used Zod and TanStack for validation and data handling in the application.",
+                ],
+            },
             {
                 company: "C&C Sweden AB",
                 subtitle: "(formerly MacSupport)",
@@ -250,17 +343,16 @@ export const cvData: CVData = {
             },
             {
                 company: "Webhallen",
-                subtitle: "Bredden",
                 role: "Store Associate",
                 period: "2020 - 2021",
                 description: [
-                    "Worked at the main warehouse in Upplands Väsby in the store.",
+                    "Worked in the store at the main warehouse in Bredden, Upplands Väsby.",
                     "Handled customers, product facing, and order pickups.",
                 ],
             },
             {
                 company: "Apple Inc.",
-                subtitle: "Slash.ten",
+                subtitle: "(through Slash.ten)",
                 role: "Specialist",
                 period: "2019 - 2020",
                 description: [
