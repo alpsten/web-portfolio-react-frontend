@@ -8,19 +8,26 @@ export default function Bio() {
             <div className="bio__grid">
                 <div className="bio__content">
                     <p>
-                        I'm a passionate software developer based in Stockholm with a strong interest in
-                        building robust backend systems and web applications. My journey in software
-                        development has led me to explore various technologies, from Spring Boot and
-                        microservices to modern frontend frameworks like React.
+                        I’m a software developer based in Stockholm,
+                        focused on building backend systems and modern web applications.
+                        I primarily work with Java and Spring Boot, as well as Node.js and Express,
+                        designing APIs and services with a focus on structure, clarity, and long-term maintainability.
                     </p>
                     <p>
-                        Currently, I'm expanding my knowledge in cloud technologies, Kubernetes, and
-                        DevOps practices. I believe in writing clean, maintainable code and continuously
-                        learning new tools and methodologies to deliver better solutions.
+                        I’ve worked with databases using tools like Prisma, MongoDB, and Supabase,
+                        and I’m comfortable building full-stack applications with React and TypeScript.
+                        My experience also includes handling authentication, payments, and data-heavy interfaces
+                        using tools like Clerk, Stripe, and TanStack.
                     </p>
                     <p>
-                        When I'm not coding, you can find me exploring new music, contributing to
-                        open-source projects, or diving into the latest tech trends.
+                        I aim to keep systems simple and well-structured, whether that means designing clear APIs,
+                        validating data properly, or organizing code so it’s easy to understand and extend.
+                    </p>
+                    <p>
+                        Currently, I’m expanding my knowledge in cloud technologies, Kubernetes, and DevOps.
+                    </p>
+                    <p>
+                        Outside of coding, I enjoy music and spending time with my family.
                     </p>
                     <div className="bio__cta">
                         <Link to="/cv" className="btn btn--outline">

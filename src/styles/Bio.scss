@@ -35,10 +35,10 @@
 }
 
 .bio__sidebar .bubble {
-  background: #06402B;
-  border: 1px solid #1DB95440;
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--a) 25%, transparent);
   border-radius: 14px;
-  color: #d8e1ea;
+  color: var(--text);
   padding: 20px 24px 12px;
   text-align: center;
 }
@@ -49,7 +49,7 @@
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #1DB954;
+  color: var(--a);
 }
 
 .bio__sidebar .funfact__list {
@@ -60,7 +60,7 @@
 
 .bio__sidebar .funfact__list li {
   padding: 12px 0;
-  border-top: 1px solid #1DB95430;
+  border-top: 1px solid color-mix(in srgb, var(--a) 18%, transparent);
   font-size: 15px;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .btn--outline:hover {
-  background: #1DB954;
+  background: var(--a);
   color: #fff;
   transform: translateY(-2px);
 }

@@ -1,50 +1,113 @@
 
 .footer {
-  padding-block: 24px;
-  border-top:1px solid var(--border);
-  text-align:center;
-  display:grid;
-  gap:8px
+  margin-top: 32px;
+  padding: 28px 0 22px;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, transparent 0%, var(--card) 100%);
+}
+
+.footer__inner {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.footer__brand-block {
+  display: grid;
+  gap: 8px;
+}
+
+.footer__brand {
+  color: var(--text);
+  text-decoration: none;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.footer__tagline {
+  margin: 0;
+  color: var(--muted);
+}
+
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer__nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: color .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.footer__nav a:hover {
+  color: #fff;
+  background: var(--a);
+  border-color: var(--border);
+}
+
+.footer__meta {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
 }
 
 .footer__icons {
   display:flex;
   gap:14px;
-  justify-content:center;
-  font-size:26px
+  font-size:26px;
 }
 
 .footer__icons a {
   color:var(--muted);
-  transition:color .18s, transform .18s ease;
+  transition:color .18s ease, transform .18s ease;
 }
 
 .footer__icons a:hover{
-  color:#8ab4ff;
-  transform: translateY(-2px) scale(1.06);
-}
-
-.footer__note {
-  display:grid;
-  gap:4px;
-}
-
-.footer__link {
   color:var(--a);
-  text-decoration:none;
+  transform: translateY(-2px);
 }
 
-.footer__link:hover {
-  text-decoration:underline;
+.footer__copyright {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
-.footer a {
-  color:var(--a);
-  text-decoration:none
+.footer__bottom {
+  margin-top: 18px;
+  display: grid;
+  gap: 8px;
 }
 
-.footer a:hover {
-  text-decoration:underline
+.footer__cause {
+  color: var(--a);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer__cause:hover {
+  text-decoration: underline;
+}
+
+.footer__disclaimer {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (min-width: 860px) {
+  .footer__inner {
+    grid-template-columns: 1.3fr auto auto;
+    justify-content: space-between;
+  }
 }
 
 .socials ul {

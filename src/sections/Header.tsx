@@ -1,5 +1,5 @@
 
-import {FaApple, FaGithub, FaLinkedin} from "react-icons/fa";
+import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {MdEmail} from "react-icons/md";
 import avatar from "../assets/avatar-react.webp";
 
@@ -23,7 +23,7 @@ export default function Header() {
                     <h1 className="hero__title">Emil Alpsten</h1>
 
                         <p>
-                        <span className="hero__subtitle"></span>Software Developer on Mac <FaApple aria-label="Apple" />
+                        <span className="hero__subtitle"></span>Software Developer
                         </p>
 
                         <p>

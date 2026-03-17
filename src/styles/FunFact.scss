@@ -4,10 +4,10 @@
 }
 
 .funfact .bubble {
-  background:#06402B;
-  border:1px dashed #1DB954;
+  background:var(--accent-soft);
+  border:1px dashed var(--a);
   border-radius:14px;
-  color:#d8e1ea;
+  color:var(--text);
   padding:4px 8px;
 }
 

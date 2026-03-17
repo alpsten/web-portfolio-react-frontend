@@ -57,7 +57,7 @@
 }
 
 .btn--ghost {
-  background: #1DB954;
+  background: var(--a);
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 8px 14px;
@@ -72,6 +72,6 @@
 }
 
 .btn--ghost:hover {
-  background: #06402B;
+  background: var(--accent-deep);
   transform: translateY(-2px);
 }

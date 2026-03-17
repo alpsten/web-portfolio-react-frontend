@@ -72,13 +72,13 @@
     padding:12px 18px;
     border-radius:999px;
     border:1px solid var(--border);
-    background:#1DB954;
+    background:var(--a);
     color:#fff;
     cursor:pointer
   }
 
   .btn:hover {
-    background:#06402B
+    background:var(--accent-deep)
   }
 
   .arrow {
@@ -92,9 +92,9 @@
     padding:0.9rem 1.2rem;
     margin-top:1rem;
     border-radius:0.9rem;
-    background:#06402B;
-    border:1px solid #1DB954;
+    background:var(--accent-deep);
+    border:1px solid var(--a);
     color:white;
-    box-shadow:0 0 0 1px rgba(118, 255, 164, 0.12) inset;
+    box-shadow:0 0 0 1px color-mix(in srgb, var(--a) 12%, transparent) inset;
   }
 }

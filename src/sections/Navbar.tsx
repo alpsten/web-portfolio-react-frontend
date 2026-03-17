@@ -1,5 +1,4 @@
 
-import {BsHexagonFill} from "react-icons/bs";
 import { useState } from "react";
 import ThemeToggle from "../components/ThemeToggle";
 
@@ -23,8 +22,7 @@ export default function Navbar() {
             <div className="navbar__inner container">
 
                 <a className="brand" href="#top" aria-label="Go to top">
-                    <BsHexagonFill className="brand__icon" aria-hidden="true" />
-                    <span className="brand__text" aria-hidden="true">EF</span>
+                    <span className="brand__text">Alpsten</span>
                 </a>
 
                 <ul className={`navbar__menu ${open ? "is-open" : ""}`}>
