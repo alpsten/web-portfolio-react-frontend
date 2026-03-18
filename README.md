@@ -62,4 +62,4 @@ User sees a confirmation message in the UI.
 
 # Acknowledgements
 Thanks to [@YujiSato](https://github.com/yujisatojr/react-portfolio-template/tree/master?tab=readme-ov-file)
-for template inspiration and [@mnauliady](https://www.flaticon.com/authors/mnauliady) for the favicon.
+for template inspiration.
