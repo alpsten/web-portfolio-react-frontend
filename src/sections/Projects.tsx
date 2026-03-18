@@ -15,7 +15,9 @@ const projects: Project[] = [
             "Simple game implementation with a clear repository-first presentation.",
         ],
         links: [
-            { label: "GitHub Repository", href: "https://github.com/alpsten/fifteen-puzzle" }],
+            { label: "GitHub Repository", href: "https://github.com/alpsten/fifteen-puzzle" },
+            { label: "Website", href: "https://alpsten.github.io/fifteen-puzzle/" },
+        ],
     },
     {
         title: "Fakestore Shop",
