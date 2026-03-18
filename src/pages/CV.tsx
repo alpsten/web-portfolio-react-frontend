@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { cvData } from "../data/cvData";
 import { FaChevronDown, FaPhone, FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt, FaArrowLeft } from "react-icons/fa";
@@ -37,6 +37,10 @@ export default function CV() {
     const { name, contact, references } = cvData;
     const content = cvData[lang];
     const { title, profile, skills, languages, education, experience, labels } = content;
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }, []);
 
     return (
         <div className="cv-page">
