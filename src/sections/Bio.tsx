@@ -33,6 +33,9 @@ export default function Bio() {
                         <Link to="/cv" className="btn btn--outline">
                             <FaFileAlt />
                             View My CV
+                            <span className="btn__orbit" aria-hidden="true">
+                                <span className="btn__planet" />
+                            </span>
                         </Link>
                     </div>
                 </div>
