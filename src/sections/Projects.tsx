@@ -36,7 +36,7 @@ const projects: Project[] = [
             { label: "Website", href: "https://emilforzberg.github.io" },
             { label: "Fakestore API", href: "https://fakestoreapi.com" },
         ],
-        about: "Still currently polishing a continuation of a school assigntment.",
+        about: "Still currently polishing a continuation of a school assignment.",
     },
     {
         title: "1001 Songs for Majken",

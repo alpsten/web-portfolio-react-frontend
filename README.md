@@ -1,7 +1,7 @@
 
-# Emil Alpsten – Portfolio Website
+# Emil Alpsten - Portfolio Website
 
-A personal portfolio website built with **React + TypeScript** (frontend) and **Java / Spring Boot** backend).
+A personal portfolio website built with **React + TypeScript** on the frontend and a **Java / Spring Boot** backend.
 The site showcases my projects and provides a **Contact Me form** that stores submissions in PostgreSQL
 and also triggers an email notification via **Brevo**.
 
@@ -11,7 +11,7 @@ and also triggers an email notification via **Brevo**.
 
 **Frontend:**
 - React (TypeScript + Vite)
-- SCSS modules for styling
+- SCSS for styling
 - React Icons
 - Netlify for deployment
 
@@ -27,8 +27,8 @@ and also triggers an email notification via **Brevo**.
 
 - **Hero Section** with profile picture, intro, and social links.
 - **Expertise Section** highlighting skills (Java, React, Docker, etc).
-- **Projects Section** with screenshots, descriptions, and links (GitHub, APIs, live demos).
-- **Spotify Section** embedding one of my personal playlists.
+- **Projects Section** with descriptions and links (GitHub, APIs, live demos).
+- **Music Section** featuring a few favorite playlists and soundtracks.
 - **Contact Form** with validation, connected to my backend (Spring Boot API).
 - **Fun Facts Section** for a personal touch.
 - **Footer** with external links (GitHub, LinkedIn, Suicide Zero).
