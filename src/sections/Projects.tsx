@@ -1,36 +1,52 @@
 
 type Project = {
     title: string;
-    description: string;
+    about: string;
     links: { label: string; href: string }[];
-    highlights: string[];
 };
 
 const projects: Project[] = [
     {
-        title: "Fifteen Puzzle (Java)",
-        description: "Classic sliding 15-puzzle implemented in Java.",
-        highlights: [
-            "Built in Java with focus on core logic and clean structure.",
-            "Simple game implementation with a clear repository-first presentation.",
-        ],
+        title: "This Website",
         links: [
-            { label: "GitHub Repository", href: "https://github.com/alpsten/fifteen-puzzle" },
-            { label: "Website", href: "https://alpsten.github.io/fifteen-puzzle/" },
+            { label: "GitHub", href: "https://github.com/alpsten/web-portfolio-react-frontend" },
         ],
+        about: "A personal portfolio showcasing my projects, experience, and technical background, with a focus on backend development, APIs, and modern web applications.",
     },
     {
-        title: "Fakestore Shop",
-        description: "A simple storefront built against the Fakestore API.",
-        highlights: [
-            "Frontend project focused on layout, API integration, and product flow.",
-            "Built as a lightweight web experience with clear external links.",
-        ],
+        title: "Fifteen Puzzle",
         links: [
-            { label: "GitHub Repository", href: "https://github.com/alpsten/fakestore-api" },
+            { label: "GitHub", href: "https://github.com/alpsten/fifteen-puzzle" },
+            { label: "Website", href: "https://alpsten.github.io/fifteen-puzzle/" },
+        ],
+        about: "A polished 15-puzzle with both a Java desktop version and a TypeScript web version. Slide the tiles into order on a 4x4 board, play locally, or share it online through GitHub Pages. Good luck!",
+    },
+    {
+        title: "Daycare For Animals",
+        links: [
+            { label: "GitHub", href: "https://github.com/alpsten/daycare-for-animals" },
+            { label: "Website", href: "https://alpsten.github.io/daycare-for-animals/" },
+        ],
+        about: "A polished continuation of a school project: an animal daycare reception app with a Java core, local CLI, API layer, and TypeScript frontend. Feel free to try it out.",
+    },
+    {
+        title: "Fakestore API",
+        links: [
+            { label: "GitHub", href: "https://github.com/alpsten/fakestore-api" },
             { label: "Website", href: "https://emilforzberg.github.io" },
-            { label: "Fakestore API", href: "https://fakestoreapi.com" }
-        ]
+            { label: "Fakestore API", href: "https://fakestoreapi.com" },
+        ],
+        about: "Still currently polishing a continuation of a school assigntment.",
+    },
+    {
+        title: "1001 Songs for Majken",
+        links: [],
+        about: "Currently working on a project called 1001 Songs for Majken which is my long-term digital mixtape for my daughter: a personal archive of songs, artists, albums, and the meanings they carry.",
+    },
+    {
+        title: "Secret Project",
+        links: [],
+        about: "Currently working on.",
     },
 ];
 
@@ -42,26 +58,22 @@ export default function Projects() {
                 {projects.map((p) => (
                     <article key={p.title} className="project">
                         <h3 className="project__title">{p.title}</h3>
-                        <p className="muted">{p.description}</p>
-                        <ul className="project__highlights">
-                            {p.highlights.map((item) => (
-                                <li key={item}>{item}</li>
-                            ))}
-                        </ul>
-
-                        <div className="project__links" aria-label={`${p.title} links`}>
-                            {p.links.map((l) => (
-                                <a
-                                    key={l.href}
-                                    href={l.href}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="project__link"
-                                >
-                                    {l.label}
-                                </a>
-                            ))}
-                        </div>
+                        <p className="muted">{p.about}</p>
+                        {p.links.length > 0 && (
+                            <div className="project__links" aria-label={`${p.title} links`}>
+                                {p.links.map((l) => (
+                                    <a
+                                        key={l.href}
+                                        href={l.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="project__link"
+                                    >
+                                        {l.label}
+                                    </a>
+                                ))}
+                            </div>
+                        )}
 
                     </article>
                 ))}
