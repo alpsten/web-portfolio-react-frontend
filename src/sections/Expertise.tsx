@@ -13,25 +13,25 @@ export default function Expertise() {
         {
             title: "Backend",
             Icon: FaServer,
-            text: "Core backend technologies I work with most.",
+            text: "Core backend technologies I work with most. I focus on building structured services, clear APIs, and systems that stay maintainable as they grow.",
             stack: ["Java", "Spring Boot", "Node.js", "Express.js", "REST APIs", "and more..."],
         },
         {
             title: "Frontend",
             Icon: FaReact,
-            text: "Frontend tools I use to build responsive interfaces.",
+            text: "Frontend tools I use to build responsive interfaces. I care about usability, clean component structure, and connecting the UI to real application logic in a straightforward way.",
             stack: ["React", "TypeScript", "JavaScript", "HTML", "Tailwind", "and more..."],
         },
         {
             title: "Data",
             Icon: FaDatabase,
-            text: "Data and integration tools I use in real projects.",
+            text: "Data and integration tools I use in real projects. That includes working with validation, persistence, and external services so the data flow remains reliable end to end.",
             stack: ["Prisma", "MongoDB", "MySQL", "Supabase", "Zod", "and more..."],
         },
         {
             title: "Tooling",
             Icon: FaWrench,
-            text: "Tools and libraries I rely on for delivery and product work.",
+            text: "Tools and libraries I rely on for delivery and product work. I use them to keep development practical, reduce friction, and ship features with a steady workflow.",
             stack: ["Git", "Vite", "Bun", "TanStack Query", "Stripe SDK", "and more..."],
         },
     ];

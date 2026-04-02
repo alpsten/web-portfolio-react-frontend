@@ -1,7 +1,7 @@
 
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {MdEmail} from "react-icons/md";
-import avatar from "../assets/avatar-react.webp";
+import avatar from "../assets/avatar-react-2.webp";
 
 export default function Header() {
     return (

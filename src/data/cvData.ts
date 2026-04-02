@@ -83,7 +83,7 @@ export interface CVData {
 
 export const cvData: CVData = {
     name: "Emil Alpsten",
-    headshot: "/src/assets/avatar-react.webp",
+    headshot: "/src/assets/avatar-react-2.webp",
     contact: {
         phone: "(+46) 076 209 34 56",
         emails: [

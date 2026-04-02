@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { cvData } from "../data/cvData";
 import { FaChevronDown, FaPhone, FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt, FaArrowLeft } from "react-icons/fa";
-import avatar from "../assets/avatar-react.webp";
+import avatar from "../assets/avatar-react-2.webp";
 
 type Lang = "sv" | "en";
 
