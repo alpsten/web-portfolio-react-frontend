@@ -19,7 +19,7 @@ const projects: Project[] = [
             { label: "GitHub", href: "https://github.com/alpsten/fifteen-puzzle" },
             { label: "Website", href: "https://alpsten.github.io/fifteen-puzzle/" },
         ],
-        about: "A polished 15-puzzle with both a Java desktop version and a TypeScript web version. Slide the tiles into order on a 4x4 board, play locally, or share it online through GitHub Pages. Good luck!",
+        about: "A polished continuation of a school project: a 15-puzzle with both a Java desktop- and a TypeScript web-version. Slide the tiles into order on a 4x4 board, play locally, or share it online. Good luck!",
     },
     {
         title: "Daycare For Animals",
@@ -32,8 +32,8 @@ const projects: Project[] = [
     {
         title: "Fakestore API",
         links: [
-            { label: "GitHub", href: "https://github.com/alpsten/fakestore-api" },
-            { label: "Website", href: "https://emilforzberg.github.io" },
+            { label: "GitHub", href: "https://github.com/alpsten/fakstore-api" },
+            { label: "Website", href: "https://alpsten.github.io/fakstore-api/" },
             { label: "Fakestore API", href: "https://fakestoreapi.com" },
         ],
         about: "Still currently polishing a continuation of a school assignment.",

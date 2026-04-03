@@ -3,6 +3,8 @@ dist/
 .vite/
 .DS_Store
 .env
+.cache/
+.swift-module-cache/
 
 # Local Netlify folder
 .netlify

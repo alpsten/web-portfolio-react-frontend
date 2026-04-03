@@ -35,12 +35,12 @@ export default function SpotifySection() {
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                Minecraft - Volume Alpha
+                                Volume Alpha
                             </a>
                         </h3>
                     </div>
                     <p className="spotify__description">
-                        One of those soundtracks that evokes a strong sense of nostalgia and immerses the listener in another world, such as Minecraft - Volume Alpha by C418.
+                        Volume Alpha is one of those rare albums that feels nostalgic, calming, and deeply inspiring, no matter how many times I listen to it.
                     </p>
                 </article>
 
