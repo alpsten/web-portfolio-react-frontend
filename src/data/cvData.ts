@@ -30,8 +30,6 @@ export interface Reference {
         en: string;
     };
     period?: string;
-    phone: string;
-    email: string;
 }
 
 export interface Education {
@@ -39,7 +37,6 @@ export interface Education {
     degree: string;
     period: string;
     courses?: EducationCourse[];
-    description?: string;
 }
 
 export interface Experience {
@@ -76,14 +73,12 @@ export interface CVData {
     name: string;
     contact: ContactInfo;
     references: Reference[];
-    headshot: string;
     sv: CVContent;
     en: CVContent;
 }
 
 export const cvData: CVData = {
     name: "Emil Alpsten",
-    headshot: "/src/assets/avatar-react-2.webp",
     contact: {
         phone: "(+46) 076 209 34 56",
         emails: [
@@ -104,8 +99,6 @@ export const cvData: CVData = {
                 en: "Internship supervisor",
             },
             period: "2025 - 2026",
-            phone: "",
-            email: "",
         },
         {
             name: "Anders Lakwani",
@@ -116,8 +109,6 @@ export const cvData: CVData = {
                 en: "Former manager",
             },
             period: "2023 - 2024",
-            phone: "(+46) 070 432 77 XX",
-            email: "a.lakhwani@cec.com",
         },
         {
             name: "Nicklas Johansson",
@@ -128,8 +119,6 @@ export const cvData: CVData = {
                 en: "Former manager",
             },
             period: "2019 - 2020",
-            phone: "(+46) 072 215 17 XX",
-            email: "nicklas_johansson@apple.com",
         },
     ],
     sv: {
