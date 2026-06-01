@@ -1,73 +1,107 @@
-.bio__grid {
-  display: grid;
-  gap: 24px;
+/* Full-width text block */
+.bio__text {
+  max-width: 780px;
+  margin-bottom: 48px;
 }
 
-@media (min-width: 820px) {
-  .bio__grid {
-    grid-template-columns: 1fr auto;
-    align-items: start;
-  }
-}
-
-.bio__content {
-  max-width: 720px;
-}
-
-.bio__content p {
+.bio__text p {
   color: var(--muted);
   line-height: 1.7;
   margin: 0 0 1rem;
 }
 
-.bio__content p:last-of-type {
-  margin-bottom: 1.5rem;
+.bio__lead {
+  color: var(--text) !important;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.7 !important;
+  margin-bottom: 1.5rem !important;
 }
 
 .bio__cta {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  margin-top: 8px;
 }
 
-.bio__sidebar {
-  min-width: 240px;
+/* Facts list — same DrawRule + number pattern as other sections */
+.bio__facts {
+  flex: 1;
 }
 
-.bio__sidebar .bubble {
-  background: var(--accent-soft);
-  border: 1px solid color-mix(in srgb, var(--a) 25%, transparent);
-  border-radius: 14px;
-  color: var(--text);
-  padding: 20px 24px 12px;
-  text-align: center;
+.bio__facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 48px;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-.bio__sidebar .funfact__title {
-  margin: 0 0 16px;
-  font-weight: 500;
-  font-size: 14px;
+.bio__facts-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 1px;
   color: var(--a);
+  font-weight: 700;
+  margin: 0 0 4px;
 }
 
-.bio__sidebar .funfact__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.bio__fact-inner {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 14px 0;
 }
 
-.bio__sidebar .funfact__list li {
-  padding: 12px 0;
-  border-top: 1px solid color-mix(in srgb, var(--a) 18%, transparent);
-  font-size: 15px;
+.bio__fact {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: calc(0.15s + var(--fact-i) * 0.08s);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.bio__sidebar .funfact__list li:last-child {
-  padding-bottom: 0;
+.bio__fact-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--a);
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 24px;
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  .bio__fact--visible & {
+    animation: fact-num-spin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-delay: calc(var(--fact-i) * 0.07s + 0.15s);
+  }
 }
 
+@keyframes fact-num-spin {
+  from { transform: rotate(-180deg) scale(0.5); opacity: 0; }
+  to   { transform: rotate(0deg)    scale(1);   opacity: 1; }
+}
+
+.bio__fact-highlight {
+  color: var(--a);
+  font-weight: 600;
+}
+
+.bio__fact-text {
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* CV button */
 .btn--outline {
   position: relative;
   display: inline-flex;
@@ -115,59 +149,11 @@
 }
 
 @keyframes button-orbit {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-@media (max-width: 819px) {
-  .bio__sidebar .bubble {
-    display: block;
-    width: 100%;
-    max-width: none;
-    padding: 16px 16px 12px;
-    text-align: left;
-  }
-
-  .bio__sidebar .funfact__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    display: grid;
-    gap: 0 16px;
-  }
-
-  .bio__sidebar .funfact__list li {
-    padding: 10px 0;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  .bio__sidebar .bubble {
-    padding: 14px 14px 10px;
-  }
-
-  .bio__sidebar .funfact__title {
-    margin-bottom: 12px;
-    font-size: 12px;
-  }
-
-  .bio__sidebar .funfact__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 12px;
-  }
-
-  .bio__sidebar .funfact__list li {
-    padding: 8px 0;
-    font-size: 12px;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
-  .btn__orbit {
-    animation: none;
-  }
+  .btn__orbit { animation: none; }
 }
