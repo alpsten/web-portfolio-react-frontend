@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { useInView, useReducedMotion } from "framer-motion";
 import AnimatedHeading from "../components/AnimatedHeading";
@@ -73,6 +73,11 @@ const projects: Project[] = [
     },
 ];
 
+function getAnimatedEls(titleEl: HTMLElement, numEl: HTMLElement, descEl: HTMLElement | null, linksEl: HTMLDivElement | null) {
+    const chars = Array.from(titleEl.querySelectorAll<HTMLElement>(".proj-char"));
+    return [numEl, ...chars, descEl, linksEl].filter(Boolean) as HTMLElement[];
+}
+
 function ProjectItem({ project, index, skip }: { project: Project; index: number; skip: boolean }) {
     const itemRef  = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
@@ -81,47 +86,46 @@ function ProjectItem({ project, index, skip }: { project: Project; index: number
     const linksRef = useRef<HTMLDivElement>(null);
     const played   = useRef(false);
 
-    const inView = useInView(itemRef, { once: true, amount: 0.25 });
+    const inView = useInView(itemRef, { once: true, amount: 0.75 });
+
+    // Hide all animated elements before the first browser paint
+    useLayoutEffect(() => {
+        if (skip || !titleRef.current || !numRef.current) return;
+        gsap.set(getAnimatedEls(titleRef.current, numRef.current, descRef.current, linksRef.current), { opacity: 0 });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-        if (!inView || skip || played.current) return;
-        if (!titleRef.current || !numRef.current) return;
+        if (skip) {
+            if (!titleRef.current || !numRef.current) return;
+            gsap.set(getAnimatedEls(titleRef.current, numRef.current, descRef.current, linksRef.current),
+                { opacity: 1, y: 0, rotation: 0, scale: 1 });
+            return;
+        }
+        if (!inView || played.current || !titleRef.current || !numRef.current) return;
         played.current = true;
 
         const chars = titleRef.current.querySelectorAll<HTMLElement>(".proj-char");
 
         const tl = gsap.timeline();
-
-        // Number spins in
-        tl.from(numRef.current, {
-            rotation: -180,
-            scale: 0.4,
-            opacity: 0,
-            duration: 0.45,
-            ease: "back.out(1.7)",
-        })
-        // Characters cascade in left → right
-        .from(chars, {
-            y: 18,
-            opacity: 0,
-            duration: 0.035,
-            stagger: 0.028,
-            ease: "power3.out",
-        }, "-=0.25")
-        // Description slides up
-        .from(descRef.current, {
-            y: 10,
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-        }, "-=0.1")
-        // Links fade in
-        .from(linksRef.current ?? [], {
-            opacity: 0,
-            y: 6,
-            duration: 0.3,
-            ease: "power2.out",
-        }, "-=0.2");
+        tl.fromTo(numRef.current,
+            { rotation: -180, scale: 0.4, opacity: 0 },
+            { rotation: 0, scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.7)" }
+        )
+        .fromTo(chars,
+            { y: 18, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.035, stagger: 0.028, ease: "power3.out" },
+            "-=0.25"
+        )
+        .fromTo(descRef.current!,
+            { y: 10, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+            "-=0.1"
+        )
+        .fromTo(linksRef.current ?? [],
+            { y: 6, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" },
+            "-=0.2"
+        );
 
         return () => { tl.kill(); };
     }, [inView, skip]);
@@ -135,15 +139,13 @@ function ProjectItem({ project, index, skip }: { project: Project; index: number
                         {String(index + 1).padStart(2, "0")}
                     </span>
                     <h3 ref={titleRef} className="projects__title" aria-label={project.title}>
-                        {project.title.split("").map((char, i) => (
-                            <span
-                                key={i}
-                                className="proj-char"
-                                style={{ display: "inline-block" }}
-                            >
-                                {char === " " ? " " : char}
-                            </span>
-                        ))}
+                        {project.title.split("").map((char, i) =>
+                            char === " " ? (
+                                <span key={i}>&nbsp;</span>
+                            ) : (
+                                <span key={i} className="proj-char" style={{ display: "inline-block" }}>{char}</span>
+                            )
+                        )}
                     </h3>
                 </div>
                 <p ref={descRef} className="projects__about">{project.about}</p>
@@ -151,7 +153,7 @@ function ProjectItem({ project, index, skip }: { project: Project; index: number
                     <div ref={linksRef} className="projects__links" aria-label={`${project.title} links`}>
                         {project.links.map((l) => (
                             <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="projects__link">
-                                {l.label} ↗
+                                {l.label}
                             </a>
                         ))}
                     </div>

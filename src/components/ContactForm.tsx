@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
 import { FaPaperPlane } from "react-icons/fa";
@@ -13,31 +13,38 @@ export default function ContactForm() {
     const played       = useRef(false);
     const reduced      = useReducedMotion();
     const isLoopCopy   = useIsLoopCopy();
-    const inView       = useInView(containerRef, { once: true, amount: 0.15 });
+    const inView       = useInView(containerRef, { once: true, amount: 0.5 });
+
+    useLayoutEffect(() => {
+        if (reduced || isLoopCopy || !containerRef.current) return;
+        const fields  = Array.from(containerRef.current.querySelectorAll<HTMLElement>(".contact__field"));
+        const actions = containerRef.current.querySelector<HTMLElement>(".contact__actions");
+        gsap.set([...fields, actions].filter(Boolean) as HTMLElement[], { opacity: 0 });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-        if (!inView || reduced || isLoopCopy || played.current || !containerRef.current) return;
-        played.current = true;
+        if (!containerRef.current) return;
 
-        const fields  = containerRef.current.querySelectorAll<HTMLElement>(".contact__field");
+        const fields  = Array.from(containerRef.current.querySelectorAll<HTMLElement>(".contact__field"));
         const actions = containerRef.current.querySelector<HTMLElement>(".contact__actions");
 
-        gsap.from(fields, {
-            y: 16,
-            opacity: 0,
-            duration: 0.4,
-            stagger: 0.07,
-            ease: "power2.out",
-            delay: 0.2,
-        });
+        if (reduced || isLoopCopy) {
+            gsap.set([...fields, actions].filter(Boolean), { opacity: 1, y: 0 });
+            return;
+        }
+
+        if (!inView || played.current) return;
+        played.current = true;
+
+        gsap.fromTo(fields,
+            { opacity: 0, y: 16 },
+            { opacity: 1, y: 0, duration: 0.4, stagger: 0.07, ease: "power2.out", delay: 0.2 }
+        );
         if (actions) {
-            gsap.from(actions, {
-                y: 10,
-                opacity: 0,
-                duration: 0.4,
-                ease: "power2.out",
-                delay: 0.2 + fields.length * 0.07,
-            });
+            gsap.fromTo(actions,
+                { opacity: 0, y: 10 },
+                { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", delay: 0.2 + fields.length * 0.07 }
+            );
         }
     }, [inView, reduced, isLoopCopy]);
 
