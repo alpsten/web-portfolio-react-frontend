@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const LINKS = [
     { href: "#about",     label: "About"     },
@@ -11,18 +11,36 @@ const LINKS = [
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const [atHero, setAtHero] = useState(true);
+
+    useEffect(() => {
+        let cycleH = 0;
+        const measureCycle = () => {
+            const el = document.getElementById("loop-cycle");
+            if (el) cycleH = el.offsetHeight;
+        };
+        measureCycle();
+        window.addEventListener("resize", measureCycle);
+
+        const onScroll = () => {
+            const scrollInCycle = cycleH > 0 ? window.scrollY % cycleH : window.scrollY;
+            setAtHero(scrollInCycle < window.innerHeight * 0.6);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", measureCycle);
+        };
+    }, []);
 
     function handleClick() {
         setOpen(false);
     }
 
     return (
-        <nav className="navbar">
+        <nav className={`navbar ${atHero ? "navbar--hero" : ""}`}>
             <div className="navbar__inner container">
-
-                <a className="brand" href="#top" aria-label="Go to top">
-                    <span className="brand__text">Alpsten</span>
-                </a>
 
                 <ul className={`navbar__menu ${open ? "is-open" : ""}`}>
                     {LINKS.map((l) => (

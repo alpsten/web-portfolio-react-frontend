@@ -1,18 +1,38 @@
 
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  width: 100%;
+  z-index: 100;
   backdrop-filter: blur(8px) saturate(1.05);
   background: var(--navbar-bg);
   border-bottom: 1px solid var(--navbar-border);
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.navbar--hero {
+  background: transparent;
+  border-color: transparent;
+  backdrop-filter: none;
+}
+
+.navbar--hero .brand__text,
+.navbar--hero .navbar__menu a {
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.navbar--hero .brand:hover .brand__text,
+.navbar--hero .navbar__menu a:hover {
+  opacity: 1;
 }
 
 .navbar__inner {
   height: 56px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-end;
 }
 
 .navbar__brand {
@@ -116,7 +136,7 @@
     right:0;
     top:56px;
     display:none;
-    background:var(--navbar-bg);
+    background: #1a1108;
     border-bottom:1px solid var(--navbar-border);
   }
 
