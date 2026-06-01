@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./sections/Navbar.tsx";
 import Header from "./sections/Header";
@@ -8,33 +7,49 @@ import Projects from "./sections/Projects";
 import SpotifySection from "./sections/SpotifySection.tsx";
 import ContactForm from './components/ContactForm';
 import Footer from "./sections/Footer.tsx";
-import FadeIn from "./components/FadeIn";
+import SectionCard from "./components/SectionCard";
+import ScrollProgress from "./components/ScrollProgress";
+import Cursor from "./components/Cursor";
 import CV from "./pages/CV";
+import { useLenis } from "./hooks/useLenis";
+import { LoopCopyContext } from "./context/LoopCopy";
+
+function SiteSections() {
+    return (
+        <>
+            <div className="slide slide--hero">
+                <Header />
+            </div>
+            <SectionCard><Bio /></SectionCard>
+            <SectionCard><Expertise /></SectionCard>
+            <SectionCard><Projects /></SectionCard>
+            <SectionCard><SpotifySection /></SectionCard>
+            <SectionCard after={<Footer />}><ContactForm /></SectionCard>
+        </>
+    );
+}
 
 function Home() {
+    useLenis();
+
     return (
-        <main className="site">
+        <>
+            <Cursor />
+            <ScrollProgress />
+            <div className="bg" aria-hidden="true" />
+            <div className="grain" aria-hidden="true" />
             <Navbar />
-            <FadeIn>
-                <Header/>
-            </FadeIn>
-            <FadeIn delay={100}>
-                <Bio/>
-            </FadeIn>
-            <FadeIn delay={150}>
-                <Expertise/>
-            </FadeIn>
-            <FadeIn>
-                <Projects/>
-            </FadeIn>
-            <FadeIn>
-                <SpotifySection/>
-            </FadeIn>
-            <FadeIn>
-                <ContactForm/>
-            </FadeIn>
-            <Footer/>
-        </main>
+            <main className="site">
+                <div id="loop-cycle">
+                    <SiteSections />
+                </div>
+                <LoopCopyContext.Provider value={true}>
+                    <div aria-hidden="true">
+                        <SiteSections />
+                    </div>
+                </LoopCopyContext.Provider>
+            </main>
+        </>
     );
 }
 
