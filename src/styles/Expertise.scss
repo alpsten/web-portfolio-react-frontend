@@ -1,55 +1,85 @@
-
 .expertise {
-  .cards {
-    display:grid;
-    gap:18px
+  .expertise__list {
+    display: flex;
+    flex-direction: column;
   }
 
-  @media (min-width:820px) {
-    .cards {
-      grid-template-columns:repeat(2,1fr)
-    }
+  .expertise__item {
+    position: relative;
   }
 
-  .card {
-    backdrop-filter:saturate(110%) blur(2px);
-    background:var(--card);
-    padding:18px;
-    border-radius:var(--radius);
-    box-shadow:0 6px 24px rgba(0,0,0,.28);
+  .expertise__body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 0 20px;
   }
 
-  .card-head {
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:8px
+  .expertise__left {
+    flex: 1;
   }
 
-  .icon {
-    width:36px;
-    height:36px
-  }
-
-  .pills {
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:12px;
-  }
-
-  .pill {
-    background:var(--pill-bg);
-    border:1px solid var(--border);
-    padding:6px 10px;
-    border-radius:999px;
-    font-size:14px;
+  .expertise__title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800;
+    margin: 0 0 14px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
     color: var(--text);
   }
 
-  @media (max-width:819px) {
-    .card {
-      padding: 16px;
-    }
+  .expertise__text {
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.65;
+    margin: 0;
+    font-size: 15px;
   }
+
+  .expertise__icon-wrap {
+    padding-top: 4px;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .expertise__icon {
+    color: var(--a);
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Per-item scrolling tech strip */
+  .item-marquee {
+    overflow: hidden;
+    border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+    padding: 12px 0 28px;
+  }
+
+  .item-marquee__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .item-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding-right: 24px;
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  .item-marquee__dot {
+    color: var(--a);
+    font-size: 6px;
+    opacity: 0.5;
+    line-height: 1;
+  }
+
 }

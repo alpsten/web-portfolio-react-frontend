@@ -1,54 +1,75 @@
-
-.projects__grid {
-  display: grid;
-  gap: 1rem;
-}
-
-@media (min-width: 920px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
+.projects {
+  .projects__list {
+    display: flex;
+    flex-direction: column;
   }
-}
 
-.project {
-  background: var(--card);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 10px 28px rgba(0,0,0,.28);
-  display: grid;
-  gap: 10px;
-}
+  .projects__item {
+    position: relative;
+  }
 
-.project__title {
-  margin: 0 0 0.25rem;
-}
+  .projects__body {
+    padding: 24px 0;
+    transition: padding-left 0.25s ease;
+  }
 
-.project .muted {
-  margin: 0;
-  color: var(--muted);
-}
+  .projects__item:hover .projects__body {
+    padding-left: 6px;
+  }
 
-.project__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem 1.5rem;
-  margin-top: 0.5rem;
-}
+  .projects__header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
 
-.project__link {
-  text-decoration: none;
-  color: var(--a);
-  font-weight: 600;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
+  .projects__num {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
 
-.project__link:hover {
-  color: var(--text);
-  transform: translateX(2px);
-}
+  .projects__title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    transition: color 0.2s ease;
+  }
 
-@media (max-width: 919px) {
-  .project {
-    padding: 16px;
+  .projects__item:hover .projects__title {
+    color: var(--a);
+  }
+
+  .projects__about {
+    color: var(--muted);
+    margin: 0 0 10px;
+    max-width: 680px;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  .projects__links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .projects__link {
+    font-size: 13px;
+    color: var(--a);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+
+  .projects__link:hover {
+    opacity: 0.7;
   }
 }

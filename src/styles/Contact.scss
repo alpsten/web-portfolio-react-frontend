@@ -1,100 +1,154 @@
-
 .contact {
-  form {
-    display:grid;
-    gap:12px;
-    margin-top:6px
+  &__sub {
+    max-width: 520px;
+    line-height: 1.65;
+    font-size: 15px;
+    margin: 0 0 40px;
   }
 
-  .grid-2 {
-    display:grid;
-    gap:12px
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 720px;
   }
 
-  @media (min-width:768px) {
-    .grid-2 {
-      grid-template-columns:1fr 1fr
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
     }
   }
 
-  .field {
-    display:flex;
-    flex-direction:column;
-    gap:6px
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .label {
-    font-size:14px;
-    color:var(--muted)
+  &__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--a);
+    font-weight: 700;
   }
 
-  .req {
-    color:#ffb3b3
+  &__req {
+    letter-spacing: 0;
+    color: var(--muted);
   }
 
-  input,textarea {
-    width:100%;
-    background:var(--card);
-    border:1px solid var(--border);
-    color:var(--text);
-    padding:14px;
-    border-radius:12px;
-    outline:none
+  &__opt {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 10px;
   }
 
-  input:focus,textarea:focus {
-    box-shadow:var(--ring);
-    border-color:transparent
-  }
-  textarea {
-    min-height:160px;
-    resize:vertical
+  &__input {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 14px 16px;
+    border-radius: 12px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &::placeholder {
+      color: color-mix(in srgb, var(--muted) 45%, transparent);
+    }
+
+    &:focus {
+      border-color: var(--a);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--a) 18%, transparent);
+    }
   }
 
-  .has-error input,.has-error textarea {
-    border-color:#ff6b6b
+  &__textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.6;
   }
 
-  .error {
-    color:#ff9d9d;
-    font-size:12px
+  &__error {
+    color: #ff9d9d;
+    font-size: 13px;
+    margin: 0;
   }
 
-  .actions {
-    display:flex;
-    justify-content:flex-end
+  &__actions {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 4px;
   }
 
-  .btn {
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 18px;
-    border-radius:999px;
-    border:1px solid var(--border);
-    background:var(--a);
-    color:#fff;
-    cursor:pointer
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 28px;
+    border-radius: 999px;
+    border: 1px solid var(--a);
+    background: var(--a);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      background: var(--accent-deep);
+      border-color: var(--accent-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px color-mix(in srgb, var(--a) 22%, transparent);
+    }
   }
 
-  .btn:hover {
-    background:var(--accent-deep)
+  &__submit-icon {
+    font-size: 12px;
+    transition: transform 0.2s;
   }
 
-  .arrow {
-    display:inline-block;
-    transform:translateY(1px)
+  &__submit:hover &__submit-icon {
+    transform: translateX(3px) translateY(-1px);
   }
 
-  .success {
-    display:inline-block;
+  &__success {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     max-width: min(65ch, 100%);
-    padding:0.9rem 1.2rem;
-    margin-top:1rem;
-    border-radius:0.9rem;
-    background:var(--accent-deep);
-    border:1px solid var(--a);
-    color:white;
-    box-shadow:0 0 0 1px color-mix(in srgb, var(--a) 12%, transparent) inset;
+    padding: 1.1rem 1.4rem;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--accent-deep) 65%, transparent);
+    border: 1px solid color-mix(in srgb, var(--a) 50%, transparent);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  &__success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--a);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
   }
 }

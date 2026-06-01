@@ -45,7 +45,6 @@ export default function CV() {
     return (
         <div className="cv-page">
             <div className="cv-container">
-                {/* Language Toggle */}
                 <div className="cv-lang-toggle no-print">
                     <Link to="/" className="cv-back-link">
                         <FaArrowLeft /> {labels.backToPortfolio}
@@ -68,13 +67,11 @@ export default function CV() {
 
                 <div className="cv-divider cv-divider--header" aria-hidden="true" />
 
-                {/* Header */}
                 <header className="cv-header">
                     <h1 className="cv-name">{name}</h1>
                     <p className="cv-title">{title}</p>
                 </header>
 
-                {/* Contact Section with Headshot */}
                 <div className="cv-contact-section">
                     <div className="cv-headshot">
                         <img src={avatar} alt={name} />
@@ -109,12 +106,10 @@ export default function CV() {
                     </ul>
                 </div>
 
-                {/* Profile */}
                 <ExpandableSection title={labels.profile} defaultOpen={true}>
                     <p className="cv-profile">{profile}</p>
                 </ExpandableSection>
 
-                {/* Education */}
                 <ExpandableSection title={labels.education}>
                     <div className="cv-education">
                         {education.map((edu, index) => (
@@ -147,7 +142,6 @@ export default function CV() {
                     </div>
                 </ExpandableSection>
 
-                {/* Experience */}
                 <ExpandableSection title={labels.experience}>
                     <div className="cv-experience">
                         {experience.map((exp, index) => (
@@ -172,7 +166,6 @@ export default function CV() {
                     </div>
                 </ExpandableSection>
 
-                {/* Skills */}
                 <ExpandableSection title={labels.skills}>
                     <div className="cv-skills">
                         {skills.map((skill, index) => (
@@ -188,7 +181,6 @@ export default function CV() {
                     </div>
                 </ExpandableSection>
 
-                {/* Languages */}
                 <ExpandableSection title={labels.languages}>
                     <ul className="cv-languages">
                         {languages.map((lng, index) => (
@@ -200,7 +192,6 @@ export default function CV() {
                     </ul>
                 </ExpandableSection>
 
-                {/* References */}
                 <ExpandableSection title={labels.references}>
                     <div className="cv-references">
                         <ul className="cv-references__list">
@@ -221,7 +212,6 @@ export default function CV() {
                     </div>
                 </ExpandableSection>
 
-                {/* Print Button */}
                 <div className="cv-divider cv-divider--actions no-print" aria-hidden="true" />
                 <div className="cv-actions no-print">
                     <button className="cv-print-btn" onClick={() => window.print()}>
