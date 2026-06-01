@@ -7,13 +7,15 @@ import AnimatedHeading from "../components/AnimatedHeading";
 import DrawRule from "../components/DrawRule";
 import { useIsLoopCopy } from "../context/LoopCopy";
 
-const FULL_FACTS = [
-    { pre: "Swam 10 km in",        highlight: "2:52:32",           post: "" },
-    { pre: "Avid",                  highlight: "Terraforming Mars", post: "player" },
-    { pre: "",                      highlight: "Hip-hop",           post: "is my genre of choice" },
-    { pre: "Tokyo is still on the", highlight: "bucket list",       post: "" },
-    { pre: "",                      highlight: "Science fiction",   post: "reader at heart" },
-    { pre: "Former",                highlight: "Apple Specialist",  post: "" },
+type Seg = { text: string; hl?: boolean };
+
+const FULL_FACTS: Seg[][] = [
+    [{ text: "Swam 10 km", hl: true }, { text: " in " }, { text: "2:52:32", hl: true }],
+    [{ text: "Avid " }, { text: "Terraforming Mars", hl: true }, { text: " player" }],
+    [{ text: "Hip-hop", hl: true }, { text: " is my genre of choice" }],
+    [{ text: "Tokyo", hl: true }, { text: " is still on the " }, { text: "bucket list", hl: true }],
+    [{ text: "Science fiction", hl: true }, { text: " reader at heart" }],
+    [{ text: "Former " }, { text: "Apple Specialist", hl: true }],
 ];
 
 export default function Bio() {
@@ -21,7 +23,7 @@ export default function Bio() {
     const played     = useRef(false);
     const reduced    = useReducedMotion();
     const isLoopCopy = useIsLoopCopy();
-    const inView     = useInView(gridRef, { once: true, amount: 0.2 });
+    const inView     = useInView(gridRef, { once: true, amount: 0.5 });
 
     useEffect(() => {
         if (!inView || reduced || isLoopCopy || played.current || !gridRef.current) return;
@@ -29,15 +31,13 @@ export default function Bio() {
 
         const allHighlightChars = gridRef.current.querySelectorAll<HTMLElement>(".bio__highlight-char");
 
-        // Stagger the highlight characters across all facts, delayed so they
-        // land after the CSS slide-in of each row has settled
         gsap.from(allHighlightChars, {
             y: 14,
             opacity: 0,
             duration: 0.032,
             stagger: 0.022,
             ease: "power3.out",
-            delay: 0.55,
+            delay: 0.9,
         });
     }, [inView, reduced, isLoopCopy]);
 
@@ -60,7 +60,7 @@ export default function Bio() {
                     using Clerk, Stripe, and TanStack.
                 </p>
                 <div className="bio__cta">
-                    <Link to="/cv" className="btn btn--outline">
+                    <Link to="/cv" className="btn btn--primary">
                         <FaFileAlt />
                         View My CV
                         <span className="btn__orbit" aria-hidden="true">
@@ -83,19 +83,23 @@ export default function Bio() {
                             <div className="bio__fact-inner">
                                 <span className="bio__fact-num">0{i + 1}</span>
                                 <span className="bio__fact-text">
-                                    {fact.pre && <>{fact.pre} </>}
-                                    <span className="bio__fact-highlight">
-                                        {fact.highlight.split("").map((char, j) => (
-                                            <span
-                                                key={j}
-                                                className="bio__highlight-char"
-                                                style={{ display: "inline-block" }}
-                                            >
-                                                {char === " " ? " " : char}
+                                    {fact.map((seg, j) =>
+                                        seg.hl ? (
+                                            <span key={j} className="bio__fact-highlight">
+                                                {seg.text.split("").map((char, k) => (
+                                                    <span
+                                                        key={k}
+                                                        className="bio__highlight-char"
+                                                        style={{ display: "inline-block" }}
+                                                    >
+                                                        {char === " " ? " " : char}
+                                                    </span>
+                                                ))}
                                             </span>
-                                        ))}
-                                    </span>
-                                    {fact.post && <> {fact.post}</>}
+                                        ) : (
+                                            <span key={j}>{seg.text}</span>
+                                        )
+                                    )}
                                 </span>
                             </div>
                         </div>
