@@ -56,16 +56,19 @@
   justify-content:center;
   width:40px;
   height:40px;
-  border:1px solid var(--border);
+  border:1px solid var(--a);
   background:var(--a);
   color:#fff;
-  border-radius:10px; cursor:pointer;
+  border-radius:999px;
+  cursor:pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .navbar__toggle:hover {
   background: var(--accent-deep);
-  border-color: var(--border);
-  transform: translateY(-1px);
+  border-color: var(--accent-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--a) 22%, transparent);
 }
 
 .navbar__burger {
@@ -103,16 +106,19 @@
 .navbar__menu a {
   color:var(--muted);
   text-decoration:none;
-  padding:8px 10px;
+  padding:8px 14px;
   display:block;
-  border-radius:10px;
+  border-radius:999px;
   border:1px solid transparent;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .navbar__menu a:hover {
   color:#fff;
   background:var(--a);
-  border-color:var(--border);
+  border-color:var(--a);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--a) 22%, transparent);
 }
 
 /* Desktop */
@@ -156,14 +162,14 @@ html {
 .brand{
   display: inline-flex;
   align-items: center;
-  padding: 8px 10px;
+  padding: 8px 14px;
   min-height: 40px;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 999px;
   text-decoration: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: background .18s ease, border-color .18s ease;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .brand__text {
@@ -177,13 +183,14 @@ html {
 }
 
 .brand:hover {
-  background:var(--a);
-  border-color: var(--border);
+  background: var(--a);
+  border-color: var(--a);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--a) 22%, transparent);
 }
 
 .brand:hover .brand__text {
-  color:#fff;
-  transform: none;
+  color: #fff;
 }
 
 @media (min-width: 860px){
