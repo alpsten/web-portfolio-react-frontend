@@ -53,7 +53,7 @@ export default function Bio() {
                     I primarily work with Java and Spring Boot, as well as Node.js and Express,
                     designing APIs and services with a focus on structure, clarity, and long-term maintainability.
                 </p>
-                <p>
+                <p className="bio__lead">
                     I've worked with databases using tools like Prisma, MongoDB, and Supabase,
                     and I'm comfortable building full-stack applications with React and TypeScript.
                     My experience also includes authentication, payments, and data-heavy interfaces
