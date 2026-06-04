@@ -16,7 +16,7 @@
     padding: 28px 0 20px;
   }
 
-  .expertise__marquee {
+  .expertise__tech {
   }
 
   .expertise__left {
@@ -69,13 +69,17 @@
   .item-marquee__item {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
-    padding-right: 24px;
+    gap: 8px;
+    padding-right: 28px;
     font-size: 13px;
     color: var(--muted);
     white-space: nowrap;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.03em;
+  }
+
+  .item-marquee__icon {
+    flex-shrink: 0;
   }
 
   .item-marquee__dot {
@@ -84,5 +88,4 @@
     opacity: 0.5;
     line-height: 1;
   }
-
 }
