@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import MagneticIcon from "../components/MagneticIcon";
 import avatar from "../assets/avatar-react-2.webp";
 import avatarBack from "../assets/avatar-react-1.webp";
@@ -86,7 +85,7 @@ export default function Header() {
                     </MagneticIcon>
                     <MagneticIcon>
                         <a className="social-icon social-icon--mail" href="mailto:hello.alpsten@gmail.com" aria-label="Email">
-                            <MdEmail />
+                            <FaEnvelope />
                         </a>
                     </MagneticIcon>
                 </motion.div>

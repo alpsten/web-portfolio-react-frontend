@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./sections/Navbar.tsx";
 import Header from "./sections/Header";
@@ -10,9 +11,10 @@ import Footer from "./sections/Footer.tsx";
 import SectionCard from "./components/SectionCard";
 import ScrollProgress from "./components/ScrollProgress";
 import Cursor from "./components/Cursor";
-import CV from "./pages/CV";
 import { useLenis } from "./hooks/useLenis";
 import { LoopCopyContext } from "./context/LoopCopy";
+
+const CV = lazy(() => import("./pages/CV"));
 
 function SiteSections() {
     return (
@@ -58,7 +60,7 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/cv" element={<CV />} />
+                <Route path="/cv" element={<Suspense fallback={null}><CV /></Suspense>} />
             </Routes>
         </BrowserRouter>
     );
